@@ -89,5 +89,5 @@ void Gamemenu_Action_Menu() {
 void Gamemenu_Inventory_Write() {
     Crplayer.displayStats();
     cout << "/--- Inventory ---/\n";
-    cout << Crplayer.Inventory << endl;
+    cout << "#Still in develepment#\n";
 }

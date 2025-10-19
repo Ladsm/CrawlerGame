@@ -9,7 +9,6 @@ using namespace std;
 class CrawlerPlayer
 {
 public:
-    string Inventory[20] = { "" };
 	int Damage = 5;
 	int Defence = 5;
 	int intelagince = 5;
