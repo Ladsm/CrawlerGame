@@ -6,4 +6,5 @@ int points = 5;
 bool start = false;
 bool MainMenu = true;
 bool Gamerunnin = false;
+bool NoSND = false;
 CrawlerPlayer Crplayer;

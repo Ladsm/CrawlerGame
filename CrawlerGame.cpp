@@ -9,22 +9,18 @@
 
 using namespace std;
 
+extern bool NoSND;
+extern bool showSplash;
+
 int main(int argc, char* argv[]) {
-    bool showSplash = true;
     for (int i = 1; i < argc; ++i) {
-        if (strcmp(argv[i], "-nosplash") == 0) {
-            showSplash = false;
+        if (strcmp(argv[1], "-NoSound") == 0) {
+            NoSND = true;
         }
     }
     while (MainMenu == true)
     {
-        if (showSplash == true)
-        {
-            MainMenu_splash();
-        }
-        else {
-            MainMenu_Splash_Alt();
-        }
+        MainMenu_splash();
         MainMenu_Menu();
         if (start == true) 
         {
