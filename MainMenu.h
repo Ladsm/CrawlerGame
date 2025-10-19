@@ -18,6 +18,7 @@ extern bool Gamerunnin;
 extern CrawlerPlayer Crplayer;
 
 void Menu_Switch_Fail();
+void BeepSound();
 
 void MainMenu_splash() {
 	cout << "                                                            Crawler Game!                                                        " << endl;
@@ -55,6 +56,7 @@ CrawlerPlayer MainMenu_NewGame() {
     int choice;
     cout << "What is your character's name?\n";
     getline(cin >> ws, CrplayerLocal.Crawler_Name);
+    BeepSound();
     while (points > 0) {
         cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\n";
         cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
@@ -62,13 +64,21 @@ CrawlerPlayer MainMenu_NewGame() {
         cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
         cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
         cout << points << " points left.\n";
-        cout << "Enter the number of the stat to increase: ";
+        cout << "Enter the number of the stat to increase : ";
         cin >> choice;
         switch (choice) {
-            case 1: CrplayerLocal.Damage++; break;
-            case 2: CrplayerLocal.Defence++; break;
-            case 3: CrplayerLocal.intelagince++; break;
-            case 4: CrplayerLocal.Mobility++; break;
+            case 1:
+                BeepSound();
+                CrplayerLocal.Damage++; break;
+            case 2:
+                BeepSound();
+                CrplayerLocal.Defence++; break;
+            case 3:
+                BeepSound();
+                CrplayerLocal.intelagince++; break;
+            case 4:
+                BeepSound();
+                CrplayerLocal.Mobility++; break;
             default:
                 Menu_Switch_Fail();
                 continue;
@@ -87,19 +97,21 @@ string GetDocumentsPath() {
 
 bool MainMenu_Menu() {
 Loadfail:
-    int menuChoice;
-    cin >> menuChoice;
+    int Choice;
+    cin >> Choice;
     string saveFile = GetDocumentsPath() + "\\savegame.txt";
 
-    switch (menuChoice)
+    switch (Choice)
     {
     case 1:
+        BeepSound();
         Crplayer = MainMenu_NewGame();
         MainMenu = false;
         start = true;
         Crplayer.saveToFile(saveFile);
         break;
     case 2:
+        BeepSound();
         if (Crplayer.loadFromFile(saveFile)) {
             cout << "Game loaded!\n";
             MainMenu = false;
@@ -123,4 +135,8 @@ Loadfail:
 
 void Menu_Switch_Fail() {
     cout << "Invalid option, try again\n";
+}
+
+void BeepSound() {
+    PlaySound(TEXT("Sounds&Mus\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
