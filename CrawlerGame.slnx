@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CrawlerGame.vcxproj" Id="9a30fe57-5d30-4b14-a802-dbb40c7af140" />
+</Solution>
