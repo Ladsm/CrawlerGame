@@ -9,20 +9,21 @@ using namespace std;
 class CrawlerPlayer
 {
 public:
-	int Damage = 5;
-	int Defence = 5;
-	int intelagince = 5;
-	int Mobility = 5;
-	string Crawler_Name;
+    unsigned __int8 Health = 100;
+    int Damage = 5;
+    int Defence = 5;
+    int intelagince = 5;
+    int Mobility = 5;
+    string Crawler_Name;
 
-	void displayStats() const {
+    void displayStats() const {
         cout << "/--- Stats ---/\n";
-		cout << "Player Name : " << Crawler_Name << endl;
-		cout << "Damage : " << Damage << endl;
-		cout << "Defence : " << Defence << endl;
-		cout << "Intelligence : " << intelagince << endl;
-		cout << "Mobility : " << Mobility << endl;
-	}
+        cout << "Player Name : " << Crawler_Name << endl;
+        cout << "Damage : " << Damage << endl;
+        cout << "Defence : " << Defence << endl;
+        cout << "Intelligence : " << intelagince << endl;
+        cout << "Mobility : " << Mobility << endl;
+    }
     void saveToFile(const string& filename) const {
         ofstream out(filename);
         out << Crawler_Name << endl;

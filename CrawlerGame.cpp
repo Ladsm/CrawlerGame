@@ -30,6 +30,9 @@ int main(int argc, char* argv[]) {
     while (Gamerunnin == true)
     {
         Gamemenu_Large_Menu();
+        if (Crplayer.Health <= 0) {
+            PlayerDead();
+        }
     }
     return 0;
 }

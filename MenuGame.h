@@ -91,3 +91,27 @@ void Gamemenu_Inventory_Write() {
     cout << "/--- Inventory ---/\n";
     cout << "#Still in develepment#\n";
 }
+
+void PlayerDead() {
+    int choice;
+    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    cout << "/--- YOU DEAD ---/\n";
+    cout << "1. Continue from last save\n";
+    cout << "2. Quit\n";
+    cin >> choice;
+    switch (choice)
+    {
+    case 1:
+        if (Crplayer.loadFromFile(saveFile))
+            cout << "Game loaded!\n";
+        else
+            cout << "Failed to load game.\n";
+        break;
+    case 2:
+        exit(1);
+        break;
+    default:
+        Menu_Switch_Fail();
+        break;
+    }
+}
