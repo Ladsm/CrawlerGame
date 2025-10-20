@@ -9,7 +9,7 @@ using namespace std;
 class CrawlerPlayer
 {
 public:
-    unsigned __int8 Health = 100;
+    int Health = 100;
     int Damage = 5;
     int Defence = 5;
     int intelagince = 5;
@@ -18,6 +18,7 @@ public:
 
     void displayStats() const {
         cout << "/--- Stats ---/\n";
+        cout << "Heath left : " << Health << endl;
         cout << "Player Name : " << Crawler_Name << endl;
         cout << "Damage : " << Damage << endl;
         cout << "Defence : " << Defence << endl;
@@ -26,6 +27,7 @@ public:
     }
     void saveToFile(const string& filename) const {
         ofstream out(filename);
+        out << Health << endl;
         out << Crawler_Name << endl;
         out << Damage << endl;
         out << Defence << endl;
@@ -37,6 +39,7 @@ public:
         ifstream in(filename);
         if (!in) return false;
         getline(in, Crawler_Name);
+        in >> Health;
         in >> Damage;
         in >> Defence;
         in >> intelagince;
