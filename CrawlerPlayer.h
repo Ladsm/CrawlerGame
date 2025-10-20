@@ -9,7 +9,7 @@ using namespace std;
 class CrawlerPlayer
 {
 public:
-    unsigned __int8 Health = 100;
+    int Health = 100;
     int Damage = 5;
     int Defence = 5;
     int intelagince = 5;
