@@ -11,13 +11,16 @@ public:
 };
 
 class HealingItem : item {
+public:
 	int HealAmount;
 };
 
 class WeaponItem : item {
+public:
 	int DamgageOfWeapon;
 };
 
 class DefenceItem : item {
+public:
 	int DefenceOfItem;
 };
