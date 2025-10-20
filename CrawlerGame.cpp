@@ -10,7 +10,6 @@
 using namespace std;
 
 extern bool NoSND;
-extern bool showSplash;
 
 int main(int argc, char* argv[]) {
     for (int i = 1; i < argc; ++i) {
