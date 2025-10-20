@@ -44,7 +44,8 @@ void Gamemenu_Large_Menu() {
                 cout << "Failed to load game.\n";
             break;
         case 5:
-            Gamerunnin = false;
+                PlaySound(TEXT("Sounds&Mus\\leaveing.wav"), NULL, SND_FILENAME);
+                exit(1);
             break;
         default:
             Menu_Switch_Fail();
