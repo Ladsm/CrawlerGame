@@ -120,7 +120,7 @@ Loadfail:
         }
         break;
     case 3:
-        MainMenu = false;
+        exit(1);
         return 0;
     default:
         Menu_Switch_Fail();
