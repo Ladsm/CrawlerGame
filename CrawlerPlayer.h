@@ -19,6 +19,7 @@ public:
     void displayStats() const {
         cout << "/--- Stats ---/\n";
         cout << "Player Name : " << Crawler_Name << endl;
+        cout << "Health : " << Health << endl;
         cout << "Damage : " << Damage << endl;
         cout << "Defence : " << Defence << endl;
         cout << "Intelligence : " << intelagince << endl;
@@ -27,6 +28,7 @@ public:
     void saveToFile(const string& filename) const {
         ofstream out(filename);
         out << Crawler_Name << endl;
+        out << Health << endl;
         out << Damage << endl;
         out << Defence << endl;
         out << intelagince << endl;
@@ -37,6 +39,7 @@ public:
         ifstream in(filename);
         if (!in) return false;
         getline(in, Crawler_Name);
+        in >> Health;
         in >> Damage;
         in >> Defence;
         in >> intelagince;

@@ -1,6 +1,6 @@
 #pragma once
 #define NOMINMAX
-#define _NO_CVTE_BYTE_ // Dont know why but it needs this for windows.h to work
+#define _NO_CVTE_BYTE_
 #include <windows.h>
 #include <mmsystem.h>
 #include "CrawlerPlayer.h"
@@ -59,10 +59,15 @@ CrawlerPlayer MainMenu_NewGame() {
     BeepSound();
     while (points > 0) {
         cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\n";
+        SetConsoleTextAttribute(h, 12);
         cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
+        SetConsoleTextAttribute(h, 9);
         cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
+        SetConsoleTextAttribute(h, 11);
         cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
+        SetConsoleTextAttribute(h, 14);
         cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
+        SetConsoleTextAttribute(h, 7);
         cout << points << " points left.\n";
         cout << "Enter the number of the stat to increase : ";
         cin >> choice;
@@ -142,8 +147,5 @@ void BeepSound() {
     {
         PlaySound(TEXT("Sounds&Mus\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
     }
-    else
-    {
-
-    }
+    else {}
 }
