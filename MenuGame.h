@@ -10,7 +10,9 @@ void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();
 
 void Gamemenu_Large_Write() {
+    SetConsoleTextAttribute(h, 4);
     cout << "/--- GAME MENU ---/\n";
+    SetConsoleTextAttribute(h, 7);
     cout << "1. Action\n";
     cout << "2. Stats and inventory\n";
     cout << "3. Save Game\n";
@@ -53,8 +55,10 @@ void Gamemenu_Large_Menu() {
         }
 }
 
-void Gamemenu_Action_Write(){
+void Gamemenu_Action_Write() {
+    SetConsoleTextAttribute(h, 4);
     cout << "/--- Action MENU ---/\n";
+    SetConsoleTextAttribute(h, 7);
     cout << "1. Action\n";
     cout << "2. Stats and inventory\n";
     cout << "3. Save Game\n";

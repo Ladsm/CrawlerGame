@@ -8,6 +8,7 @@
 #include <iostream>
 #include <shlobj.h>
 #pragma comment(lib, "Winmm.lib")
+HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
 using namespace std;
 
@@ -42,9 +43,11 @@ void MainMenu_splash() {
     if (NoSND == false) {
         PlaySound(TEXT("Sounds&Mus\\IntroMus.wav"), NULL, SND_FILENAME);
     }
+    SetConsoleTextAttribute(h, 14);
     cout << "1. New game\n";
     cout << "2. Load game\n";
     cout << "3. Quit\n";
+    SetConsoleTextAttribute(h, 7);
 }
 
 CrawlerPlayer MainMenu_NewGame() {
