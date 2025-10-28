@@ -8,6 +8,7 @@ using namespace std;
 
 void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();
+void Menu_Loadgame();
 
 void Gamemenu_Large_Write() {
     SetConsoleTextAttribute(h, 4);
@@ -40,14 +41,11 @@ void Gamemenu_Large_Menu() {
             cout << "Game saved!\n";
             break;
         case 4:
-            if (Crplayer.loadFromFile(saveFile))
-                cout << "Game loaded!\n";
-            else
-                cout << "Failed to load game.\n";
+            Menu_Loadgame();
             break;
         case 5:
-                PlaySound(TEXT("Sounds&Mus\\leaveing.wav"), NULL, SND_FILENAME);
-                exit(1);
+            PlaySound(TEXT("Sounds&Mus\\leaveing.wav"), NULL, SND_FILENAME);
+            exit(1);
             break;
         default:
             Menu_Switch_Fail();
@@ -94,7 +92,7 @@ void Gamemenu_Action_Menu() {
 void Gamemenu_Inventory_Write() {
     Crplayer.displayStats();
     cout << "/--- Inventory ---/\n";
-    cout << "#Still in develepment#\n";
+    cout << "#Still in develepment#\n"; //and will be for a long time...
 }
 
 void PlayerDead() {
@@ -117,6 +115,24 @@ void PlayerDead() {
         break;
     default:
         Menu_Switch_Fail();
+        break;
+    }
+}
+
+void Menu_Loadgame() {
+    int choice;
+    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    cout << "1. Are you sure?\n";
+    cout << "2. Back\n";
+    cin >> choice;
+    switch (choice) {
+    case 1:
+        if (Crplayer.loadFromFile(saveFile))
+            cout << "Game loaded!\n";
+        else
+            cout << "Failed to load game.\n";
+        break;
+    default:
         break;
     }
 }

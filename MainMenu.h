@@ -10,7 +10,7 @@
 #pragma comment(lib, "Winmm.lib")
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
-/*
+/* This is for the SetConsoleTextAttribute function, enjoy.
 1: blue
 2: green
 3: cyan
