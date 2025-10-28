@@ -10,6 +10,23 @@
 #pragma comment(lib, "Winmm.lib")
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
+/*
+1: blue
+2: green
+3: cyan
+4: red
+5: purple
+6: yellow (dark)
+7: default white
+8: gray/grey
+9: bright blue
+10: bright green
+11: bright cyan
+12: bright red
+13: pink/magenta
+14: yellow
+15: bright white*/
+
 using namespace std;
 
 extern int points;
