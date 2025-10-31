@@ -1,1 +1,6 @@
-To use music and sound effects, unzip Sounds&Mus.zip and place the Sounds&Mus folder next to the .exe
+# Welcome to the CrawlerGame Repository
+
+This is the repository for the video game CrawlerGame, CrawlerGame was made to learn C++
+and other things.
+
+## - Info
