@@ -9,8 +9,6 @@
 
 using namespace std;
 
-extern bool NoSND;
-
 int main() {
     while (MainMenu == true)
     {

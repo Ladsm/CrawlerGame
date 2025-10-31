@@ -7,7 +7,6 @@ class item{
 public:
 	string itemName;
 	int itemId;
-	int itemQuantity;
 };
 
 class HealingItem : item {

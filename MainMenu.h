@@ -32,7 +32,6 @@ using namespace std;
 extern int points;
 extern bool start;
 extern bool MainMenu;
-extern bool NoSND;
 extern bool Gamerunnin;
 extern CrawlerPlayer Crplayer;
 
@@ -57,14 +56,12 @@ void MainMenu_splash() {
         cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
         cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
         cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    if (NoSND == false) {
         PlaySound(TEXT("Sounds&Mus\\IntroMus.wav"), NULL, SND_FILENAME);
-    }
-    SetConsoleTextAttribute(h, 14);
-    cout << "1. New game\n";
-    cout << "2. Load game\n";
-    cout << "3. Quit\n";
-    SetConsoleTextAttribute(h, 7);
+        SetConsoleTextAttribute(h, 14);
+        cout << "1. New game\n";
+        cout << "2. Load game\n";
+        cout << "3. Quit\n";
+        SetConsoleTextAttribute(h, 7);
 }
 
 CrawlerPlayer MainMenu_NewGame() {
@@ -160,9 +157,5 @@ void Menu_Switch_Fail() {
 }
 
 void BeepSound() {
-    if (NoSND == false)
-    {
         PlaySound(TEXT("Sounds&Mus\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
-    }
-    else {}
 }

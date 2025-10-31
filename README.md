@@ -5,6 +5,10 @@ and other things.
 
 ## Info
 
+Menu Clusters : MainMenu.h & MenuGame.h
+Player Clusters : CrawlerPlayer.h
+Item and Inventory Clusters : Inventory.h & Item.h
+
 ### TODO
 
 - Inventory system.
