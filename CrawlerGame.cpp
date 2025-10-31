@@ -11,12 +11,7 @@ using namespace std;
 
 extern bool NoSND;
 
-int main(int argc, char* argv[]) {
-    for (int i = 1; i < argc; ++i) {
-        if (strcmp(argv[1], "-NoSound") == 0) {
-            NoSND = true;
-        }
-    }
+int main() {
     while (MainMenu == true)
     {
         MainMenu_splash();
