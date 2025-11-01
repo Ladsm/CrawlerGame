@@ -6,6 +6,9 @@
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
 #include "MenuGame.h"
+#include "Inventory.h"
+
+extern Inventory LocalInventory;
 
 using namespace std;
 

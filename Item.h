@@ -7,6 +7,10 @@ class item{
 public:
 	string itemName;
 	int itemId;
+
+	bool operator==(int id) const {
+		return itemId == id;
+	}
 };
 
 class HealingItem : item {

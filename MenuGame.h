@@ -3,8 +3,11 @@
 #include <string>
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
+#include "Inventory.h"
 
 using namespace std;
+
+Inventory LocalInventory;
 
 void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();
@@ -91,8 +94,7 @@ void Gamemenu_Action_Menu() {
 
 void Gamemenu_Inventory_Write() {
     Crplayer.displayStats();
-    cout << "/--- Inventory ---/\n";
-    cout << "#Still in develepment#\n"; //and will be for a long time...
+    LocalInventory.displayInventory();
 }
 
 void PlayerDead() {
@@ -135,4 +137,12 @@ void Menu_Loadgame() {
     default:
         break;
     }
+}
+
+string GetItemNameById(int id) {
+    for (const auto& it : LocalInventory.inventory) {
+        if (it.itemId == id)
+            return it.itemName;
+    }
+    return "Unknown Item";
 }
