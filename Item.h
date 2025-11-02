@@ -13,17 +13,28 @@ public:
 	}
 };
 
-class HealingItem : item {
+class HealingItem : public item {
 public:
-	int HealAmount;
+	void Item_healAmount(int HealAmount) {
+		for (int i = 0; i < HealAmount; i++) {
+			if (Crplayer.Health >= 100) {
+				cout << "Health is max\n";
+				return;
+			}
+			else {
+				Crplayer.Health++;
+			}
+		}
+		return;
+	}
 };
 
-class WeaponItem : item {
+class WeaponItem : public item {
 public:
-	int DamgageOfWeapon;
+	int DamageOfWeapon;
 };
 
-class DefenceItem : item {
+class DefenceItem : public item {
 public:
 	int DefenceOfItem;
 };
