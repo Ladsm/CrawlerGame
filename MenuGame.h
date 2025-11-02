@@ -12,6 +12,7 @@ Inventory LocalInventory;
 void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();
 void Menu_Loadgame();
+string GetItemNameById(int id);
 
 void Gamemenu_Large_Write() {
     SetConsoleTextAttribute(h, 4);
