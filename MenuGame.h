@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Inventory LocalInventory;
+extern Inventory LocalInventory;
 
 void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();

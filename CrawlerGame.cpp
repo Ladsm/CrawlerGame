@@ -8,7 +8,7 @@
 #include "MenuGame.h"
 #include "Inventory.h"
 
-extern Inventory LocalInventory;
+Inventory LocalInventory;
 
 using namespace std;
 
