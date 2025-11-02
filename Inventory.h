@@ -6,11 +6,11 @@
 class Inventory
 {
 	public:
-		item inventory[20] = { item{"", 0} };
+		item* inventory[20] = { nullptr };
 
-		bool Inv_AddItemToInv(const item& newItem) {
+		bool Inv_AddItemToInv(item* newItem) {
 			for (int i = 0; i < 20; i++) {
-				if (inventory[i].itemId == 0) {
+				if (inventory[i] == nullptr) {
 					inventory[i] = newItem;
 					return true;
 				}
@@ -20,8 +20,9 @@ class Inventory
 
 		bool Inv_RemoveItemFromInv(int Id) {
 			for (int i = 0; i < 20; i++) {
-				if (inventory[i] == Id) {
-					inventory[i] = item{ "",0 };
+				if (inventory[i] != nullptr && inventory[i]->itemId == Id) {
+					delete inventory[i];
+					inventory[i] = nullptr;
 					return true;
 				}
 			}
@@ -32,9 +33,9 @@ class Inventory
 			int four = 0;
 			cout << "/--- Inventory ---/\n";
 			for (int i = 0; i < 20; i++, four++) {
-				const item& currentItem = inventory[i];
-				if (currentItem.itemId != 0) {
-					cout << currentItem.itemName << ', '; if (four <= 4) {
+				if (inventory[i] != nullptr && inventory[i]->itemId !=0) {
+					cout << inventory[i]->itemName << ', '; 
+					if (four >= 4) {
 						cout << '\n';
 						four = 0;
 					}

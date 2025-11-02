@@ -7,10 +7,9 @@ class item{
 public:
 	string itemName;
 	int itemId;
+	virtual ~item() {}
 
-	bool operator==(int id) const {
-		return itemId == id;
-	}
+	bool operator==(int id) const {return itemId == id;}
 };
 
 class HealingItem : public item {
