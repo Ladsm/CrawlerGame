@@ -7,6 +7,8 @@
 
 using namespace std;
 
+Inventory LocalInventory;
+
 void Gamemenu_Inventory_Write();
 void Gamemenu_Action_Menu();
 void Menu_Loadgame();
@@ -93,6 +95,7 @@ void Gamemenu_Action_Menu() {
 
 void Gamemenu_Inventory_Write() {
     Crplayer.displayStats();
+    LocalInventory.displayInventory();
 }
 
 void PlayerDead() {
@@ -138,8 +141,7 @@ void Menu_Loadgame() {
 }
 
 string GetItemNameById(int id) {
-    Inventory localInventory;
-    for (const auto& it : localInventory.inventory) {
+    for (const auto& it : LocalInventory.inventory) {
         if (it.itemId == id)
             return it.itemName;
     }

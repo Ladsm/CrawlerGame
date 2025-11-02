@@ -21,7 +21,7 @@ class Inventory
 		bool Inv_RemoveItemFromInv(int Id) {
 			for (int i = 0; i < 20; i++) {
 				if (inventory[i] == Id) {
-					inventory[i] = item{"",0};
+					inventory[i] = item{ "",0 };
 					return true;
 				}
 			}
