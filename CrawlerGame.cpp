@@ -8,6 +8,7 @@
 #include "MenuGame.h"
 #include "Inventory.h"
 
+HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
 
 using namespace std;
