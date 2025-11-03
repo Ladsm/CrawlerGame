@@ -15,6 +15,8 @@ Item and Inventory Clusters : Inventory.h/cpp & Item.h/cpp
 - Actions.
 - Story
 
+## How to...
+
 ### How to set up sound
 
 To set up sound in the game you must build the program once and then unzip Sounds&Mus.zip in the same folder as the exicuteable.
