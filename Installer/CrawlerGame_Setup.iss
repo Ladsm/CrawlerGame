@@ -20,7 +20,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputBaseFilename=CrawlerGame_Setup
-SetupIconFile=D:\repos\CrawlerGame_Setup.ico
+SetupIconFile=D:\repos\installer\CrawlerGame_Setup.ico
 SolidCompression=yes
 WizardStyle=modern
 
