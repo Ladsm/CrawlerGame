@@ -124,7 +124,7 @@ void PlayerDead() {
 void Menu_Loadgame() {
     int choice;
     string saveFile = GetDocumentsPath() + "\\savegame.txt";
-    cout << "Are you sure?";
+    cout << "Are you sure?\n";
     cout << "1. Yes\n";
     cout << "2. No\n";
     cin >> choice;
