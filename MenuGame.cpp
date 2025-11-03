@@ -56,7 +56,7 @@ void Gamemenu_Large_Menu() {
     }
 }
 
-void Gamemenu_Action_Write() {
+static void Gamemenu_Action_Write() {
     SetConsoleTextAttribute(h, 4);
     cout << "/--- Action MENU ---/\n";
     SetConsoleTextAttribute(h, 7);
