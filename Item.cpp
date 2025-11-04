@@ -10,7 +10,7 @@ using namespace std;
 HealingItem Healing_Potion;
 HealingItem Bread;
 
-void Initializers() {
+void static Initializers() {
 	//Healing_Potion
 	Healing_Potion.itemId = 1;
 	Healing_Potion.itemName = "Healing Potion";

@@ -60,10 +60,10 @@ static void Gamemenu_Action_Write() {
     SetConsoleTextAttribute(h, 4);
     cout << "/--- Action MENU ---/\n";
     SetConsoleTextAttribute(h, 7);
-    cout << "1. Action\n";
-    cout << "2. Stats and inventory\n";
-    cout << "3. Save Game\n";
-    cout << "4. Load Game\n";
+    cout << "1. #NOT DONE\n";
+    cout << "2. #NOT DONE\n";
+    cout << "3. #NOT DONE\n";
+    cout << "4. #NOT DONE\n";
     cout << "5. Back\n";
     cout << "Enter the number of your choice\n";
 }

@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <mmsystem.h>
 #include "CrawlerPlayer.h"
+#include "Item.h"
 #include <cmath>
 #include <iostream>
 #include <shlobj.h>
@@ -88,16 +89,20 @@ CrawlerPlayer MainMenu_NewGame() {
         switch (choice) {
         case 1:
             BeepSound();
-            CrplayerLocal.Damage++; break;
+            CrplayerLocal.Damage++;
+            break;
         case 2:
             BeepSound();
-            CrplayerLocal.Defence++; break;
+            CrplayerLocal.Defence++;
+            break;
         case 3:
             BeepSound();
-            CrplayerLocal.intelagince++; break;
+            CrplayerLocal.intelagince++;
+            break;
         case 4:
             BeepSound();
-            CrplayerLocal.Mobility++; break;
+            CrplayerLocal.Mobility++;
+            break;
         default:
             Menu_Switch_Fail();
             continue;

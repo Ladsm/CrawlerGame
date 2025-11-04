@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrawlerGame.cpp" />
-    <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuGame.cpp" />
     <ClCompile Include="Menu_Externs.cpp" />

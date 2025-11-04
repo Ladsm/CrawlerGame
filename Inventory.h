@@ -29,7 +29,7 @@ class Inventory
 			return false;
 		}
 
-		void displayInventory() {
+		void displayInventory() const {
 			int four = 0;
 			cout << "/--- Inventory ---/\n";
 			for (int i = 0; i < 20; i++, four++) {

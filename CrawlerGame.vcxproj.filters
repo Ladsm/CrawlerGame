@@ -21,7 +21,7 @@
     <ClCompile Include="Menu_Externs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Items.cpp">
+    <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
