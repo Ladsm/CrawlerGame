@@ -15,7 +15,7 @@ Item and Inventory Clusters : Inventory.h/cpp & Item.h/cpp
 - Actions.
 - Story
 
-## How to...
+## How to
 
 ### How to set up sound
 
