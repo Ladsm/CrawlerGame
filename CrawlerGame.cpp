@@ -7,13 +7,21 @@
 #include "CrawlerPlayer.h"
 #include "MenuGame.h"
 #include "Inventory.h"
+#include "Item.cpp"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
+bool NoStartUp = false;
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
+    for (int i = 1; i < argc; ++i) {
+        if (strcmp(argv[1], "-NoStartUp") == 0) {
+            NoStartUp = true;
+        }
+    }
+    init();
     while (MainMenu == true)
     {
         MainMenu_splash();
@@ -26,8 +34,12 @@ int main() {
     while (Gamerunnin == true)
     {
         Gamemenu_Large_Menu();
-        if (Crplayer.Health <= 0) {
-            PlayerDead();
+        while (1 == 1)
+        {
+            Sleep(1000);
+            if (Crplayer.Health <= 0) {
+                PlayerDead();
+            }
         }
     }
     return 0;

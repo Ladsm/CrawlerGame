@@ -27,7 +27,7 @@ void Gamemenu_Large_Write() {
 
 void Gamemenu_Large_Menu() {
     Gamerunnin = true;
-    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
     Gamemenu_Large_Write();
     int choice;
     cin >> choice;
@@ -47,7 +47,7 @@ void Gamemenu_Large_Menu() {
         Menu_Loadgame();
         break;
     case 5:
-        PlaySound(TEXT("Sounds&Mus\\leaveing.wav"), NULL, SND_FILENAME);
+        PlaySound(TEXT("Sounds&Mus\\Gamemenu\\leaveing.wav"), NULL, SND_FILENAME);
         exit(1);
         break;
     default:
@@ -99,7 +99,7 @@ void Gamemenu_Inventory_Write() {
 
 void PlayerDead() {
     int choice;
-    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
     cout << "/--- YOU DEAD ---/\n";
     cout << "1. Continue from last save\n";
     cout << "2. Quit\n";
@@ -123,7 +123,7 @@ void PlayerDead() {
 
 void Menu_Loadgame() {
     int choice;
-    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
     cout << "Are you sure?\n";
     cout << "1. Yes\n";
     cout << "2. No\n";

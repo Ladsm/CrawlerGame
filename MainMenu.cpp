@@ -8,6 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include <shlobj.h>
+#include <stdlib.h>
 #pragma comment(lib, "Winmm.lib")
 
 /* This is for the SetConsoleTextAttribute function, enjoy.
@@ -35,29 +36,51 @@ extern HANDLE h;
 extern bool MainMenu;
 extern bool Gamerunnin;
 extern CrawlerPlayer Crplayer;
+extern bool NoStartUp;
 
 void Menu_Switch_Fail();
 void BeepSound();
 
 void MainMenu_splash() {
-    cout << "                                                            Crawler Game!                                                        " << endl;
-    cout << "                                                                                                                                 " << endl;
-    cout << "                                                                AAAAAA                                                           " << endl;
-    cout << "                                                                AAAAAA                                                           " << endl;
-    cout << "                                                                A                                                                " << endl;
-    cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   A   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
-    cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   A   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-    PlaySound(TEXT("Sounds&Mus\\IntroMus.wav"), NULL, SND_FILENAME);
+    if (NoStartUp == false) {
+        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
+        cout << "                                                                                                      AAA               " << endl; Sleep(50);
+        cout << "      AAAAA             AAAAAA         AAAAAAAAAAAA        AAAAAAAAAA     AAAAAAA         AAAAAAA    AAAA               " << endl; Sleep(50);
+        cout << "      AAAAA            AAAAAAAA       AAAAAAAAAAAAAAAA    AAAAAAAA       AAAAAAAA        AAAAAAAA    AAA                " << endl; Sleep(50);
+        cout << "      AAAA            AAAA AAAA       AAAA       AAAAA    AAAA           AAAAAAAA       AAAAAAAAA    AAA     AAAAAA     " << endl; Sleep(50);
+        cout << "     AAAAA           AAAAA AAAA       AAAA        AAAA    AAAAA          AAAA AAA     AAAAA AAAA           AAAAAAAAA    " << endl; Sleep(50);
+        cout << "     AAAA           AAAA   AAAAA      AAAA        AAAAA   AAAAAAAA      AAAA  AAAA    AAAA  AAAA          AAAA          " << endl; Sleep(50);
+        cout << "    AAAAA          AAAA    AAAAA      AAAA        AAAA      AAAAAAAA   AAAAA   AAA  AAAAA  AAAA           AAAAAAA       " << endl; Sleep(50);
+        cout << "    AAAAA         AAAAAAAAAAAAAA     AAAAA      AAAAA          AAAAA   AAAAA   AAAAAAAAA   AAAA            AAAAAAAA     " << endl; Sleep(50);
+        cout << "    AAAAA        AAAAAAAAAAAAAAA     AAAAA     AAAAAA          AAAAA   AAAA    AAAAAAAA   AAAAA                AAAAA    " << endl; Sleep(50);
+        cout << "   AAAAAAAAAAAAAAAAAA        AAAAA AAAAAAAAAAAAAAAAAAA    AAAAAAAAAAAAAAAAA    AAAAAAA    AAAA                 AAAAA    " << endl; Sleep(50);
+        cout << "   AAAAAAAAAAAAAAAA          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      AAAAA     AAAA             AAAAAAA      " << endl; Sleep(50);
+        cout << "                                                                                                                        " << endl; Sleep(50);
+        cout << "   AAAAAAAAAA     AAAAA     AAAAA     AAAAAA  AAAAAAAAAAAAA    AAA     AAA   AAAAAAAAA    AAAAAAAA   AAA   AAAA  AAAAAAA" << endl; Sleep(50);
+        cout << " AAAAA    AAA    AAAAAA    AAA AA     AAAAAA  AAA       AAA   AAAAA   AAAA AAAA    AAAA  AAAA  AAAA  AAAA AAAA  AAA     " << endl; Sleep(50);
+        cout << "AAAA            AAA AAA    AAA AAA   AAAAAA   AAA       AAA  AAAAAA  AAA  AAAA     AAAA  AAA   AAAA  AAAAAAA    AAAA    " << endl; Sleep(50);
+        cout << "AAAA   AAAAA   AAA  AAA    AAA AAA  AA  AAA  AAAAAAAA   AAA  AAAAAA  AAA  AAA      AAAA  AAAAAAAAA   AAAA         AAAAA " << endl; Sleep(50);
+        cout << "AAA     AAA   AAAAAAAAAA  AAA  AAA AAA AAA   AAA        AAAAAAA  AAAAAA   AAA      AAA  AAA  AAAA   AAA AAA         AAAA" << endl; Sleep(50);
+        cout << "AAAAA   AAA AAAA     AAA  AAA  AAAAAA  AAA  AAAA        AAAAAA   AAAAA    AAAA   AAAAA  AAA   AAA  AAAA  AAAAA      AAAA" << endl; Sleep(50);
+        cout << " AAAAAAAAAAAAAA      AAAAAAA    AAA   AAAAAAAAAAAAAAA   AAAAA   AAAAA      AAAAAAAA     AAA   AAAAAAAAA   AAAAAAAAAAAA  " << endl; Sleep(1500);
+        system("cls"); Sleep(500);
+        cout << "                                                                Crawler                                                          " << endl;
+        cout << "                                                                Game!                                                          " << endl;
+        cout << "                                                                |                                                                " << endl;
+        cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
+        cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\IntroMus.wav"), NULL, SND_FILENAME);
+    }
     SetConsoleTextAttribute(h, 14);
     cout << "1. New game\n";
     cout << "2. Load game\n";
@@ -73,7 +96,7 @@ CrawlerPlayer MainMenu_NewGame() {
     getline(cin >> ws, CrplayerLocal.Crawler_Name);
     BeepSound();
     while (points > 0) {
-        cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\n";
+        cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
         SetConsoleTextAttribute(h, 12);
         cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
         SetConsoleTextAttribute(h, 9);
@@ -87,6 +110,9 @@ CrawlerPlayer MainMenu_NewGame() {
         cout << "Enter the number of the stat to increase : ";
         cin >> choice;
         switch (choice) {
+        case 0:
+            exit(1);
+            break;
         case 1:
             BeepSound();
             CrplayerLocal.Damage++;
@@ -123,7 +149,7 @@ bool MainMenu_Menu() {
 Loadfail:
     int Choice;
     cin >> Choice;
-    string saveFile = GetDocumentsPath() + "\\savegame.txt";
+    string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
 
     switch (Choice)
     {
@@ -140,6 +166,7 @@ Loadfail:
             cout << "Game loaded!\n";
             MainMenu = false;
             start = true;
+            break;
         }
         else {
             cout << "Failed to load game.\n";
@@ -162,5 +189,5 @@ void Menu_Switch_Fail() {
 }
 
 void BeepSound() {
-    PlaySound(TEXT("Sounds&Mus\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    PlaySound(TEXT("Sounds&Mus\\Mainmenu\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
