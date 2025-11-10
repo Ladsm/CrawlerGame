@@ -21,12 +21,13 @@ int main(int argc, char* argv[]) {
             NoStartUp = true;
         }
     }
+    AltEnterfullScreen();
     init();
     while (MainMenu == true)
     {
         MainMenu_splash();
         MainMenu_Menu();
-        if (start == true) 
+        if (start == true)
         {
             Gamerunnin = true;
         }
@@ -34,12 +35,8 @@ int main(int argc, char* argv[]) {
     while (Gamerunnin == true)
     {
         Gamemenu_Large_Menu();
-        while (1 == 1)
-        {
-            Sleep(1000);
-            if (Crplayer.Health <= 0) {
-                PlayerDead();
-            }
+        if (Crplayer.Health <= 0) {
+            PlayerDead();
         }
     }
     return 0;

@@ -11,6 +11,7 @@ extern bool MainMenu;
 extern bool Gamerunnin;
 extern CrawlerPlayer Crplayer;
 
+void AltEnterfullScreen();
 void Menu_Switch_Fail();
 void BeepSound();
 void MainMenu_splash();

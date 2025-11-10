@@ -138,6 +138,7 @@
     <ClInclude Include="CrawlerPlayer.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="LDGWLogo.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuGame.h" />
     <ClInclude Include="resource1.h" />
