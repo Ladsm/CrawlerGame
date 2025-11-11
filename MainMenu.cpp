@@ -53,7 +53,7 @@ void MainMenu_splash() {
     if (NoStartUp == false) {
         PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
         LogoSplash();
-        system("cls"); Sleep(500);
+        system("cls"); Sleep(1000);
         cout << "                                                                Crawler                                                          " << endl;
         cout << "                                                                Game!                                                          " << endl;
         cout << "                                                                |                                                                " << endl;
