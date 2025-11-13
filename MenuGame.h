@@ -5,8 +5,6 @@
 #include "CrawlerPlayer.h"
 #include "Inventory.h"
 
-using namespace std;
-
 extern Inventory LocalInventory;
 
 void Menu_Loadgame();
