@@ -65,5 +65,3 @@ public:
 		DefenceOfItem = ArmorDefence;
 	}
 };
-
-static void init();

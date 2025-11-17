@@ -7,21 +7,33 @@
 #include "CrawlerPlayer.h"
 #include "MenuGame.h"
 #include "Inventory.h"
-#include "Item.cpp"
+#include "item.cpp"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
 bool NoStartUp = false;
+bool FullstaTs = false;
+bool devMode = false;
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
+    system("cls");
     for (int i = 1; i < argc; ++i) {
         if (strcmp(argv[1], "-NoStartUp") == 0) {
+            NoStartUp = true;}
+        if (strcmp(argv[1], "-FullStats") == 0) {
+            FullstaTs = true;}
+        if (strcmp(argv[1], "-Dev") == 0) {
             NoStartUp = true;
+            devMode = true;
         }
     }
-    AltEnterfullScreen();
+    if (devMode == true) {}
+    if (devMode == false) {
+        AltEnterfullScreen();
+    }
+    checkIfUserIsCheater();
     init();
     while (MainMenu == true)
     {
@@ -30,6 +42,9 @@ int main(int argc, char* argv[]) {
         if (start == true)
         {
             Gamerunnin = true;
+            if (FullstaTs == true) {
+                FullStats();
+            }
         }
     }
     while (Gamerunnin == true)
@@ -39,5 +54,6 @@ int main(int argc, char* argv[]) {
             PlayerDead();
         }
     }
+    system("cls");
     return 0;
 }

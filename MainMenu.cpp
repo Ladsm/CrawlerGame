@@ -12,37 +12,23 @@
 #include "LDGWLogo.h"
 #pragma comment(lib, "Winmm.lib")
 
-/* This is for the SetConsoleTextAttribute function, enjoy.
-1: blue
-2: green
-3: cyan
-4: red
-5: purple
-6: yellow (dark)
-7: default white
-8: gray/grey
-9: bright blue
-10: bright green
-11: bright cyan
-12: bright red
-13: pink/magenta
-14: yellow
-15: bright white*/
-
 using namespace std;
 
 extern int points;
+extern int Story;
 extern bool start;
 extern HANDLE h;
 extern bool MainMenu;
 extern bool Gamerunnin;
 extern CrawlerPlayer Crplayer;
 extern bool NoStartUp;
+extern bool FullstaTs;
+extern bool devMode;
 
 void Menu_Switch_Fail();
 void BeepSound();
 
-void AltEnterfullScreen() {
+void AltEnterfullScreen(){
     keybd_event(VK_MENU, 0, 0, 0);//Alt Down
     keybd_event(VK_RETURN, 0, 0, 0);//Enter Down
     keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);//Enter Up
@@ -80,53 +66,59 @@ void MainMenu_splash() {
 
 CrawlerPlayer MainMenu_NewGame() {
     CrawlerPlayer CrplayerLocal;
-    points = 5;
-    int choice;
-    cout << "What is your character's name?\n";
-    getline(cin >> ws, CrplayerLocal.Crawler_Name);
-    BeepSound();
-    while (points > 0) {
-        cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
-        SetConsoleTextAttribute(h, 12);
-        cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
-        SetConsoleTextAttribute(h, 9);
-        cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
-        SetConsoleTextAttribute(h, 11);
-        cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
-        SetConsoleTextAttribute(h, 14);
-        cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
-        SetConsoleTextAttribute(h, 7);
-        cout << points << " points left.\n";
-        cout << "Enter the number of the stat to increase : ";
-        cin >> choice;
-        switch (choice) {
-        case 0:
-            exit(1);
-            break;
-        case 1:
-            BeepSound();
-            CrplayerLocal.Damage++;
-            break;
-        case 2:
-            BeepSound();
-            CrplayerLocal.Defence++;
-            break;
-        case 3:
-            BeepSound();
-            CrplayerLocal.intelagince++;
-            break;
-        case 4:
-            BeepSound();
-            CrplayerLocal.Mobility++;
-            break;
-        default:
-            Menu_Switch_Fail();
-            continue;
+    if (FullstaTs == false) {
+        points = 5;
+        int choice;
+        cout << "What is your character's name?\n";
+        getline(cin >> ws, CrplayerLocal.Crawler_Name);
+        BeepSound();
+        while (points > 0) {
+            cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
+            SetConsoleTextAttribute(h, 12);
+            cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
+            SetConsoleTextAttribute(h, 9);
+            cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
+            SetConsoleTextAttribute(h, 11);
+            cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
+            SetConsoleTextAttribute(h, 14);
+            cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
+            SetConsoleTextAttribute(h, 7);
+            cout << points << " points left.\n";
+            cout << "Enter the number of the stat to increase : ";
+            cin >> choice;
+            switch (choice) {
+            case 0:
+                exit(1);
+                break;
+            case 1:
+                BeepSound();
+                CrplayerLocal.Damage++;
+                break;
+            case 2:
+                BeepSound();
+                CrplayerLocal.Defence++;
+                break;
+            case 3:
+                BeepSound();
+                CrplayerLocal.intelagince++;
+                break;
+            case 4:
+                BeepSound();
+                CrplayerLocal.Mobility++;
+                break;
+            default:
+                Menu_Switch_Fail();
+                continue;
+            }
+            points--;
         }
-        points--;
+        cin.ignore();
+        Story = 0;
+        return CrplayerLocal;
     }
-    cin.ignore();
-    return CrplayerLocal;
+    else {
+        return CrplayerLocal;
+    }
 }
 
 string GetDocumentsPath() {
@@ -134,6 +126,9 @@ string GetDocumentsPath() {
     SHGetFolderPathA(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
     return string(path);
 }
+
+void FullStats();
+void checkIfUserIsCheater();
 
 bool MainMenu_Menu() {
 Loadfail:
@@ -146,6 +141,9 @@ Loadfail:
     case 1:
         BeepSound();
         Crplayer = MainMenu_NewGame();
+        if (FullstaTs == true) {
+            FullStats();
+        }
         MainMenu = false;
         start = true;
         Crplayer.saveToFile(saveFile);
@@ -180,4 +178,18 @@ void Menu_Switch_Fail() {
 
 void BeepSound() {
     PlaySound(TEXT("Sounds&Mus\\Mainmenu\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
+}
+
+void FullStats() {
+    Crplayer.Crawler_Name = "CHEATER!";
+    Crplayer.Damage = 10;
+    Crplayer.Defence = 10;
+    Crplayer.intelagince = 10;
+    Crplayer.Mobility = 10;
+}
+
+void checkIfUserIsCheater() {
+    if (Crplayer.Crawler_Name == "CHEATER!") {
+        FullstaTs = true;
+    }
 }

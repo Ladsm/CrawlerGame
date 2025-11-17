@@ -6,6 +6,8 @@
 
 using namespace std;
 
+extern int Story;
+
 class CrawlerPlayer
 {
 public:
@@ -27,6 +29,7 @@ public:
     }
     void saveToFile(const string& filename) const {
         ofstream out(filename);
+        out << Story << endl;
         out << Crawler_Name << endl;
         out << Health << endl;
         out << Damage << endl;
@@ -38,6 +41,7 @@ public:
     bool loadFromFile(const string& filename) {
         ifstream in(filename);
         if (!in) return false;
+        in >> Story;
         getline(in, Crawler_Name);
         in >> Health;
         in >> Damage;
