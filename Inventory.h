@@ -1,3 +1,4 @@
+//I dont remember how this works... I will rework this later.
 #pragma once
 #include <iostream>
 #include "Item.h"

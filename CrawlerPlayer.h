@@ -29,25 +29,25 @@ public:
     }
     void saveToFile(const string& filename) const {
         ofstream out(filename);
-        out << Story << endl;
         out << Crawler_Name << endl;
         out << Health << endl;
         out << Damage << endl;
         out << Defence << endl;
         out << intelagince << endl;
         out << Mobility << endl;
+        out << Story << endl;
     }
 
     bool loadFromFile(const string& filename) {
         ifstream in(filename);
         if (!in) return false;
-        in >> Story;
         getline(in, Crawler_Name);
         in >> Health;
         in >> Damage;
         in >> Defence;
         in >> intelagince;
         in >> Mobility;
+        in >> Story;
         return true;
     }
 };
