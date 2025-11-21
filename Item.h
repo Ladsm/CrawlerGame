@@ -4,6 +4,8 @@
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
 
+void init();
+
 class item{
 public:
 	string itemName;

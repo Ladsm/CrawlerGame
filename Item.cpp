@@ -5,10 +5,13 @@
 #include "Item.h"
 #include "Inventory.h"
 
+extern Inventory LocalInventory;
+
 using namespace std;
 
-void static init() {
+void init() {
 	item itemtest("Test Item", 1);
-	/*Inventory::Inv_AddItemToInv(itemtest*); This is how I want to add items to the inventory.
-	I might have to rework the whole inventory system 😭😭😭*/
+	LocalInventory.Inv_AddItemToInv(&itemtest);
+	/* This works but shows the
+	memery adress not the item name*/
 }

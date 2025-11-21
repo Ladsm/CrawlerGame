@@ -7,7 +7,6 @@
 #include "CrawlerPlayer.h"
 #include "MenuGame.h"
 #include "Inventory.h"
-#include "item.cpp"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
@@ -30,7 +29,7 @@ int main(int argc, char* argv[]) {
         }
     }
     if (devMode == true) {}
-    if (devMode == false) {
+    else {
         AltEnterfullScreen();
     }
     checkIfUserIsCheater();
