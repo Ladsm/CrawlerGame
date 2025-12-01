@@ -10,13 +10,8 @@ and other things.
 
 ## Info
 
-Menu Clusters : MainMenu.h/cpp & MenuGame.h/cpp  
-Player Clusters : CrawlerPlayer.h  
-Item and Inventory Clusters : Inventory.h/cpp & Item.h/cpp  
-
 ### TODO
 
-- Inventory system.
 - Actions.
 - Story
 
