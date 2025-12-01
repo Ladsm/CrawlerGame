@@ -12,8 +12,6 @@
 #include "LDGWLogo.h"
 #pragma comment(lib, "Winmm.lib")
 
-using namespace std;
-
 extern int points;
 extern int Story;
 extern bool start;
@@ -40,27 +38,27 @@ void MainMenu_splash() {
         PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
         LogoSplash();
         system("cls"); Sleep(1000);
-        cout << "                                                                Crawler                                                          " << endl;
-        cout << "                                                                Game!                                                          " << endl;
-        cout << "                                                                |                                                                " << endl;
-        cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
-        cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        std::cout << "                                                                Crawler                                                          " << std::endl;
+        std::cout << "                                                                Game!                                                            " << std::endl;
+        std::cout << "                                                                |                                                                " << std::endl;
+        std::cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << std::endl;
+        std::cout << "        AAAAAAAAAAAAAAAAAAAAAAA  AAAAAA AAAAAA  AAAAAA  AAAAA   |   AAAAA  AAAAAA  AAAAAA AAAAAAA AAAAAAAAAAAAAAAAAAAAAAA        " << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+        std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
         PlaySound(TEXT("Sounds&Mus\\Mainmenu\\IntroMus.wav"), NULL, SND_FILENAME);
     }
     SetConsoleTextAttribute(h, 14);
-    cout << "1. New game\n";
-    cout << "2. Load game\n";
-    cout << "3. Quit\n";
+    std::cout << "1. New game\n";
+    std::cout << "2. Load game\n";
+    std::cout << "3. Quit\n";
     SetConsoleTextAttribute(h, 7);
 }
 
@@ -69,23 +67,23 @@ CrawlerPlayer MainMenu_NewGame() {
     if (FullstaTs == false) {
         points = 5;
         int choice;
-        cout << "What is your character's name?\n";
-        getline(cin >> ws, CrplayerLocal.Crawler_Name);
+        std::cout << "What is your character's name?\n";
+        std::getline(std::cin >> std::ws, CrplayerLocal.Crawler_Name);
         BeepSound();
         while (points > 0) {
-            cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
+            std::cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
             SetConsoleTextAttribute(h, 12);
-            cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
+            std::cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
             SetConsoleTextAttribute(h, 9);
-            cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
+            std::cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
             SetConsoleTextAttribute(h, 11);
-            cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
+            std::cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
             SetConsoleTextAttribute(h, 14);
-            cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
+            std::cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
             SetConsoleTextAttribute(h, 7);
-            cout << points << " points left.\n";
-            cout << "Enter the number of the stat to increase : ";
-            cin >> choice;
+            std::cout << points << " points left.\n";
+            std::cout << "Enter the number of the stat to increase : ";
+            std::cin >> choice;
             switch (choice) {
             case 0:
                 exit(1);
@@ -112,7 +110,7 @@ CrawlerPlayer MainMenu_NewGame() {
             }
             points--;
         }
-        cin.ignore();
+        std::cin.ignore();
         Story = 0;
         return CrplayerLocal;
     }
@@ -121,10 +119,10 @@ CrawlerPlayer MainMenu_NewGame() {
     }
 }
 
-string GetDocumentsPath() {
+std::string GetDocumentsPath() {
     char path[MAX_PATH];
     SHGetFolderPathA(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
-    return string(path);
+    return std::string(path);
 }
 
 void FullStats();
@@ -133,8 +131,8 @@ void checkIfUserIsCheater();
 bool MainMenu_Menu() {
 Loadfail:
     int Choice;
-    cin >> Choice;
-    string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
+    std::cin >> Choice;
+    std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
 
     switch (Choice)
     {
@@ -151,13 +149,13 @@ Loadfail:
     case 2:
         BeepSound();
         if (Crplayer.loadFromFile(saveFile)) {
-            cout << "Game loaded!\n";
+            std::cout << "Game loaded!\n";
             MainMenu = false;
             start = true;
             break;
         }
         else {
-            cout << "Failed to load game.\n";
+            std::cout << "Failed to load game.\n";
             goto Loadfail;
         }
         break;
@@ -173,7 +171,7 @@ Loadfail:
 }
 
 void Menu_Switch_Fail() {
-    cout << "Invalid option, try again\n";
+    std::cout << "Invalid option, try again\n";
 }
 
 void BeepSound() {

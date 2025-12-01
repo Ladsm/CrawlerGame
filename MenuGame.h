@@ -13,3 +13,5 @@ void Gamemenu_Large_Menu();
 void Gamemenu_Inventory_Write();
 void PlayerDead();
 void Menu_Loadgame();
+void Gamemenu_Inventory_Write();
+void Gamemenu_Inventory_Menu();

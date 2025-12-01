@@ -93,23 +93,34 @@ void Gamemenu_Action_Menu() {
 void Gamemenu_Inventory_Write() {
     Crplayer.displayStats();
     LocalInventory.displayInventory();
-    std::cout << "1. Remove an item from inventory\n";
-    std::cout << "2. Back\n";
+    std::cout << "1. Use an item from inventory\n";
+    std::cout << "2. Remove an item from inventory\n";
+    std::cout << "3. Back\n";
 }
 
 void Gamemenu_Inventory_Menu() {
     Gamemenu_Inventory_Write();
     int choice;
     std::cin >> choice;
-    if(choice == 1) {
-        std::cout << "What item do you want to remove?\n";
+    if (choice == 1) {
+        std::cout << "Which item do you want to use?\n";
         int placement = +1;
         std::cin >> placement;
-        LocalInventory.Inv_RemoveItemFromInv(placement);
+        LocalInventory.Inv_UseItem(placement);
         Gamemenu_Inventory_Menu();
+        return;
     }
-    if (choice == 2) {
+    if(choice == 2) {
+        std::cout << "Which item do you want to remove?\n";
+        int placement = +1;
+        std::cin >> placement;
+        LocalInventory.Inv_RemoveItemFromInv_User(placement);
+        Gamemenu_Inventory_Menu();
+        return;
+    }
+    if (choice == 3) {
         Gamemenu_Large_Menu();
+        return;
     }
     else {
         Menu_Switch_Fail();
