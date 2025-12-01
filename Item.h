@@ -1,8 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <memory>
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
+
+class Inventory;
+extern Inventory LocalInventory;
 
 void init();
 
@@ -25,26 +29,15 @@ public:
 
 class HealingItem : public item {
 public:
-	void Item_healAmount(int HealAmount) {
-		for (int i = 0; i < HealAmount; i++) {
-			if (Crplayer.Health >= 100) {
-				std::cout << "Health is max\n";
-				return;
-			}
-			else {
-				Crplayer.Health++;
-			}
-		}
-		return;
-	}
-	HealingItem() {
-		Item_healAmount(0);
-	}
-	HealingItem(std::string name, int id, int HealAmount) {
+	int HealAmount = 0;
+	HealingItem() = default;
+	HealingItem(std::string name, int id, int healAmount) {
 		itemName = name;
 		itemId = id;
-		Item_healAmount(HealAmount);
+		HealAmount = healAmount;
 	}
+	void Item_Heal(int HealAmount);
+	void Item_Use();
 };
 class WeaponItem : public item {
 public:
@@ -68,4 +61,4 @@ public:
 	}
 };
 
-item FastItemToInv(item Item);
+bool FastItemToInv(std::unique_ptr<item> newItem);
