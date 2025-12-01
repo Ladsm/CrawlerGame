@@ -30,6 +30,9 @@
     <ClCompile Include="MenuGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CrawlerPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainMenu.h">

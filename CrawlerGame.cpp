@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
             NoStartUp = true;}
         if (strcmp(argv[1], "-FullStats") == 0) {
             FullstaTs = true;}
-        if (strcmp(argv[1], "-Dev") == 0) {
+        if (strcmp(argv[1], "-dev") == 0) { //Should I add this to readme.txt?
             NoStartUp = true;
             devMode = true;
         }

@@ -8,7 +8,7 @@ void init();
 
 class item{
 public:
-	string itemName;
+	std::string itemName;
 	int itemId;
 	virtual ~item() {}
 
@@ -17,7 +17,7 @@ public:
 		itemName = "Empty";
 		itemId = 0;
 	}
-	item(string name, int id) {
+	item(std::string name, int id) {
 		itemName = name;
 		itemId = id;
 	}
@@ -28,7 +28,7 @@ public:
 	void Item_healAmount(int HealAmount) {
 		for (int i = 0; i < HealAmount; i++) {
 			if (Crplayer.Health >= 100) {
-				cout << "Health is max\n";
+				std::cout << "Health is max\n";
 				return;
 			}
 			else {
@@ -40,7 +40,7 @@ public:
 	HealingItem() {
 		Item_healAmount(0);
 	}
-	HealingItem(string name, int id, int HealAmount) {
+	HealingItem(std::string name, int id, int HealAmount) {
 		itemName = name;
 		itemId = id;
 		Item_healAmount(HealAmount);
@@ -50,7 +50,7 @@ class WeaponItem : public item {
 public:
 	int DamageOfWeapon;
 	WeaponItem() = default;
-	WeaponItem(string name, int id, int WeaponDamage) {
+	WeaponItem(std::string name, int id, int WeaponDamage) {
 		itemName = name;
 		itemId = id;
 		DamageOfWeapon = WeaponDamage;
@@ -61,9 +61,11 @@ class DefenceItem : public item {
 public:
 	int DefenceOfItem;
 	DefenceItem() = default;
-	DefenceItem(string name, int id, int ArmorDefence) {
+	DefenceItem(std::string name, int id, int ArmorDefence) {
 		itemName = name;
 		itemId = id;
 		DefenceOfItem = ArmorDefence;
 	}
 };
+
+item FastItemToInv(item Item);

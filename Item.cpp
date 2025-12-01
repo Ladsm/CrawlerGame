@@ -7,11 +7,11 @@
 
 extern Inventory LocalInventory;
 
-using namespace std;
-
+item FastItemToInv(item Item) {
+	LocalInventory.Inv_AddItemToInv(std::make_unique<item>(Item));
+	return Item;
+}
 void init() {
-	item itemtest("Test Item", 1);
-	LocalInventory.Inv_AddItemToInv(&itemtest);
-	/* This works but shows the
-	memery adress not the item name*/
+	item testItem("Test item", 1);
+	FastItemToInv(testItem);
 }

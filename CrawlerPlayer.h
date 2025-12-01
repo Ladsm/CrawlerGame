@@ -3,10 +3,11 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
-using namespace std;
+#include <vector>
 
 extern int Story;
+class Inventory;
+extern Inventory LocalInventory;
 
 class CrawlerPlayer
 {
@@ -16,38 +17,17 @@ public:
     int Defence = 5;
     int intelagince = 5;
     int Mobility = 5;
-    string Crawler_Name;
+    std::string Crawler_Name;
 
     void displayStats() const {
-        cout << "/--- Stats ---/\n";
-        cout << "Player Name : " << Crawler_Name << endl;
-        cout << "Health : " << Health << endl;
-        cout << "Damage : " << Damage << endl;
-        cout << "Defence : " << Defence << endl;
-        cout << "Intelligence : " << intelagince << endl;
-        cout << "Mobility : " << Mobility << endl;
+        std::cout << "/--- Stats ---/\n";
+        std::cout << "Player Name : " << Crawler_Name << std::endl;
+        std::cout << "Health : " << Health << std::endl;
+        std::cout << "Damage : " << Damage << std::endl;
+        std::cout << "Defence : " << Defence << std::endl;
+        std::cout << "Intelligence : " << intelagince << std::endl;
+        std::cout << "Mobility : " << Mobility << std::endl;
     }
-    void saveToFile(const string& filename) const {
-        ofstream out(filename);
-        out << Crawler_Name << endl;
-        out << Health << endl;
-        out << Damage << endl;
-        out << Defence << endl;
-        out << intelagince << endl;
-        out << Mobility << endl;
-        out << Story << endl;
-    }
-
-    bool loadFromFile(const string& filename) {
-        ifstream in(filename);
-        if (!in) return false;
-        getline(in, Crawler_Name);
-        in >> Health;
-        in >> Damage;
-        in >> Defence;
-        in >> intelagince;
-        in >> Mobility;
-        in >> Story;
-        return true;
-    }
+    void saveToFile(const std::string& filename) const;
+    bool loadFromFile(const std::string& filename);
 };
