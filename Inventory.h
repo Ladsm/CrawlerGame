@@ -77,7 +77,7 @@ public:
         }
         std::cout << '\n';
     }
-    // Add operator[] to allow array-like access to inventory items
+
     std::unique_ptr<item>& operator[](int index) {
         return inventory[index];
     }

@@ -17,6 +17,7 @@ public:
     int Defence = 5;
     int intelagince = 5;
     int Mobility = 5;
+    int points = 5;
     std::string Crawler_Name;
 
     void displayStats() const {

@@ -13,6 +13,7 @@ void CrawlerPlayer::saveToFile(const std::string& filename) const {
     out << Defence << std::endl;
     out << intelagince << std::endl;
     out << Mobility << std::endl;
+    out << points << std::endl;
     out << Story << std::endl;
     for (int i = 0; i < 20; i++) {
         if (LocalInventory[i]) {
@@ -20,7 +21,7 @@ void CrawlerPlayer::saveToFile(const std::string& filename) const {
             out << LocalInventory[i]->itemName << std::endl;
         } else {
             out << 0 << std::endl;
-            out << "Empty" << std::endl;
+            out << "" << std::endl;
         }
     }
 }
@@ -34,6 +35,7 @@ bool CrawlerPlayer::loadFromFile(const std::string& filename) {
     in >> Defence;
     in >> intelagince;
     in >> Mobility;
+    in >> points;
     in >> Story;
     for (int i = 0; i < 20; i++) {
         int itemId;

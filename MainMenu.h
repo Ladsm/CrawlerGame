@@ -5,7 +5,6 @@
 
 extern HANDLE h;
 
-extern int points;
 extern bool start;
 extern bool MainMenu;
 extern bool Gamerunnin;
