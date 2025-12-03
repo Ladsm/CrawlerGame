@@ -1,6 +1,10 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <ctime>
+#include <string>
+#include <thread>
+#include <io.h>
+#include <fcntl.h>
 #include "MainMenu.h"
 
 int randomnum() {
@@ -10,48 +14,28 @@ int randomnum() {
 }
 
 void LogoSplash() {
-		std::cout << "                  AAAA                                      AAAAAA                                                                              AAAAAAAAAAA                                                                               AAAAAAAAA                                   \n";Sleep(randomnum());
-		std::cout << "               AAAAAAAAAA                                AAAAAAAAAAAA                      AAAAAAAAAAAAAAAAAAAAAAAAA                         AAAAAAAAAAAAAAAAAA             AAAAAAAAAAAAA                         AAAAAAAAAAAAAAA         AAAAAAAAA                                   \n";Sleep(randomnum());
-		std::cout << "               AAAAAAAAAA                               AAAAAAAAAAAAAA                    AAAAAAAAAAAAAAAAAAAAAAAAAAAA                    AAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAAAAAAAA                      AAAAAAAAAAAAAAAA         AAAAAAAA                                    \n";Sleep(randomnum());
-		std::cout << "               AAAAAAAAAA                              AAAAAAAAAAAAAAAA                   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA               AAAAAAAAAAAAAAAAAAAAAAAAA         AAAAAAAAAAAAAAAAAA                    AAAAAAAAAAAAAAAAA         AAAAAAAA                                    \n";Sleep(randomnum());
-		std::cout << "              AAAAAAAAAAA                             AAAAAAAAAAAAAAAAA                   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAAAAAAAAAA                  AAAAAAAAAAAAAAAAAA          AAAAAAAA                                    \n";Sleep(randomnum());
-		std::cout << "              AAAAAAAAAA                             AAAAAAAAAAAAAAAAAA                  AAAAAAAAAA           AAAAAAAAAAAAAA          AAAAAAAAAAA       AAAAAAAA          AAAAAAAAAAAAAAAAAA                 AAAAAAAAAAAAAAAAAAA          AAAAAAAA                                    \n";Sleep(randomnum());
-		std::cout << "             AAAAAAAAAAA                            AAAAAAAAAAAAAAAAAAAA                 AAAAAAAAA               AAAAAAAAAAAA        AAAAAAAAAAA                          AAAAAAAAAAAAAAAAAA                AAAAAAAAAAAAAAAAAAA          AAAAAAAA                                     \n";Sleep(randomnum());
-		std::cout << "              AAAAAAAAA                            AAAAAAAAA   AAAAAAAAA                AAAAAAAAAA                AAAAAAAAAAA        AAAAAAAAAA                          AAAAAAAAAAAAAAAAAAA               AAAAAAAAAA AAAAAAAAA          AAAAAAA              AAAAAAAAAAAAA           \n";Sleep(randomnum());
-		std::cout << "             AAAAAAAAAA                           AAAAAAAAAA   AAAAAAAAA                AAAAAAAAAA                 AAAAAAAAAAA       AAAAAAAAAA                          AAAAAAAAA AAAAAAAAAA             AAAAAAAAA   AAAAAAAAA          AAAAAAA          AAAAAAAAAAAAAAAAAAAA        \n";Sleep(randomnum());
-		std::cout << "            AAAAAAAAAA                          AAAAAAAAAA     AAAAAAAAAA              AAAAAAAAAAA                 AAAAAAAAAAA       AAAAAAAAAAAAAA                     AAAAAAAAAA  AAAAAAAAA           AAAAAAAAAA   AAAAAAAAAA                        AAAAAAAAAAAAAAAAAAAAAA         \n";Sleep(randomnum());
-		std::cout << "            AAAAAAAAAA                         AAAAAAAAAA       AAAAAAAAA              AAAAAAAAAA                  AAAAAAAAAAA        AAAAAAAAAAAAAAAA                 AAAAAAAAAA   AAAAAAAAA          AAAAAAAAAA   AAAAAAAAAA                         AAAAAAAAA                      \n";Sleep(randomnum());
-		std::cout << "           AAAAAAAAAAA                        AAAAAAAAAA        AAAAAAAAA             AAAAAAAAAAA                  AAAAAAAAAAA         AAAAAAAAAAAAAAAAAA               AAAAAAAAA    AAAAAAAAA        AAAAAAAAAA    AAAAAAAAAA                        AAAAAAAAA                       \n";Sleep(randomnum());
-		std::cout << "           AAAAAAAAAA                        AAAAAAAAAA         AAAAAAAAA             AAAAAAAAAA                    AAAAAAAAA           AAAAAAAAAAAAAAAAAAA            AAAAAAAAA     AAAAAAAAAA      AAAAAAAAAA     AAAAAAAAA                         AAAAAAAAAA                      \n";Sleep(randomnum());
-		std::cout << "          AAAAAAAAAAA                       AAAAAAAAAA           AAAAAAAAA            AAAAAAAAAA                   AAAAAAAAAA              AAAAAAAAAAAAAAAAA           AAAAAAAAA     AAAAAAAAAA     AAAAAAAAAA      AAAAAAAAA                         AAAAAAAAAAAA                    \n";Sleep(randomnum());
-		std::cout << "          AAAAAAAAAA                       AAAAAAAAAAA           AAAAAAAAA           AAAAAAAAAAA                  AAAAAAAAAA                  AAAAAAAAAAAAAAA         AAAAAAAAAA      AAAAAAAAA    AAAAAAAAAA      AAAAAAAAA                           AAAAAAAAAAAAAAAA               \n";Sleep(randomnum());
-		std::cout << "          AAAAAAAAAA                      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAA                 AAAAAAAAAAA                     AAAAAAAAAAAAA        AAAAAAAAA       AAAAAAAAA   AAAAAAAAAA       AAAAAAAAA                            AAAAAAAAAAAAAAAAA             \n";Sleep(randomnum());
-		std::cout << "          AAAAAAAAA                      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAA                 AAAAAAAAAAAA                       AAAAAAAAAAA       AAAAAAAAAA       AAAAAAAAAA AAAAAAAAA        AAAAAAAAAA                              AAAAAAAAAAAAAAAA            \n";Sleep(randomnum());
-		std::cout << "         AAAAAAAAAA                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA         AAAAAAAAAAA                AAAAAAAAAAAA                        AAAAAAAAAAA       AAAAAAAAA         AAAAAAAA AAAAAAAAAA        AAAAAAAAAA                                 AAAAAAAAAAAAAA           \n";Sleep(randomnum());
-		std::cout << "         AAAAAAAAAA                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA         AAAAAAAAAA               AAAAAAAAAAAA                          AAAAAAAAAAA      AAAAAAAAAA         AAAAAAAAAAAAAAAAAA         AAAAAAAAA                                     AAAAAAAAAAAA          \n";Sleep(randomnum());
-		std::cout << "        AAAAAAAAAAA                   AAAAAAAAAAA                AAAAAAAAAAA        AAAAAAAAAA             AAAAAAAAAAAAAAAAAAAAAAA                AAAAAAAAAAA       AAAAAAAAA          AAAAAAAAAAAAAAAA          AAAAAAAAA                                       AAAAAAAAAAA          \n";Sleep(randomnum());
-		std::cout << "        AAAAAAAAAAA                  AAAAAAAAAAA                  AAAAAAAAAA       AAAAAAAAAA           AAAAAAAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAAAAAAA          AAAAAAAAAA                                       AAAAAAAAAA           \n";Sleep(randomnum());
-		std::cout << "       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAAAAAAAAAA          AAAAAAAAA                         AAAAAAA     AAAAAAAAAAAA            \n";Sleep(randomnum());
-		std::cout << "       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAAAAAA           AAAAAAAAA                        AAAAAAAAAAAAAAAAAAAAAAAA             \n";Sleep(randomnum());
-		std::cout << "       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAAAAA             AAAAAAAA                         AAAAAAAAAAAAAAAAAAAAAAA              \n";Sleep(randomnum());
-		std::cout << "       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAAAAA             AAAAAAAA                          AAAAAAAAAAAAAAAAAAA                 \n";Sleep(randomnum());
-		std::cout << "                                                                                                                                                                                                                                                                                      \n";Sleep(randomnum());
-		std::cout << "            AAAAAAAAAAAAAAA                AAAAAAAAA              AAAAAAAAAA                AAAAAAAAA        AAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAA            AAAAAA          AAAAAAAAAAAAAA            AAAAAAAAAAAAAAAA            AAAAAAA       AAAAAAAA       AAAAAAAAAAAA \n";Sleep(randomnum());
-		std::cout << "         AAAAAAAAAAAAAAAAAAAA             AAAAAAAAAA             AAAAAAAAAAA              AAAAAAAAAAAA     AAAAAAAAAAAAAAAAAAAAAAAAAAAAA           AAAAAAA           AAAAAAA        AAAAAAAAAAAAAAAAAA          AAAAAAAAAAAAAAAAAA         AAAAAAAA       AAAAAAAA    AAAAAAAAAAAAAAAA\n";Sleep(randomnum());
-		std::cout << "      AAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAAAAA            AAAAAAAAAAAA             AAAAAAAAAAAA      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA         AAAAAAAAA         AAAAAAA      AAAAAAAAAAAAAAAAAAAAAAA        AAAAAAAAAAAAAAAAAAAA       AAAAAAA     AAAAAAAAA     AAAAAAAAAAAAAAAAA\n";Sleep(randomnum());
-		std::cout << "    AAAAAAAAAAA          AAAA           AAAAAAAAAAAAA           AAAAAA AAAAA            AAAAAAAAAAAAA      AAAAAAA                AAAAAAA       AAAAAAAAAAA        AAAAAAA     AAAAAAAAAA       AAAAAAAA       AAAAAAA      AAAAAAAA      AAAAAAAA    AAAAAAAAA     AAAAAAAA          \n";Sleep(randomnum());
-		std::cout << "   AAAAAAAAA                           AAAAAAAAAAAAAA           AAAAAA AAAAAA          AAAAAA AAAAAA      AAAAAAA                 AAAAAAA       AAAAAAAAAAA        AAAAAA     AAAAAAAA           AAAAAAAA      AAAAAAA       AAAAAAA      AAAAAAA    AAAAAAAA       AAAAAA            \n";Sleep(randomnum());
-		std::cout << "  AAAAAAA                             AAAAAAA  AAAAAA          AAAAAAA AAAAAA         AAAAAA AAAAAAA      AAAAAAA                 AAAAAAA      AAAAAAAAAAAA       AAAAAAA    AAAAAAA              AAAAAAA     AAAAAAA        AAAAAAA      AAAAAAA  AAAAAAAK        AAAAAAAA           \n";Sleep(randomnum());
-		std::cout << " AAAAAAAA                            AAAAAAA   AAAAAAA         AAAAAAA AAAAAAA      AAAAAAAA AAAAAA       AAAAAA                  AAAAAAA     AAAAAA AAAAAA      AAAAAA      AAAAAA     AAAAAA    AAAAAAA     AAAAAAA       AAAAAAAA     AAAAAAAA AAAAAAA          AAAAAAAAA          \n";Sleep(randomnum());
-		std::cout << "AAAAAAAA      AAAAAAAAAAAA          AAAAAA     AAAAAAA         AAAAAAA  AAAAAA      AAAAAA   AAAAAA      AAAAAAAAAAAAAAAAA        AAAAAAA    AAAAAA  AAAAAA     AAAAAA      AAAAAAA    AAAAAAAA   AAAAAAA    AAAAAAAA   AAAAAAAAAAA      AAAAAAAAAAAAAAA            AAAAAAAAAAA       \n";Sleep(randomnum());
-		std::cout << "AAAAAAA      AAAAAAAAAAAAAA        AAAAAAA      AAAAAA        AAAAAAA   AAAAAA     AAAAAA   AAAAAA       AAAAAAAAAAAAAAAAA        AAAAAAA    AAAAAA  AAAAAA     AAAAAA     AAAAAAAA   AAAAAAAAA  AAAAAAAA    AAAAAAAAAAAAAAAAAAAA        AAAAAAAAAAAAA                AAAAAAAAAAAA    \n";Sleep(randomnum());
-		std::cout << "AAAAAAA      AAAAAAAAAAAAAA       AAAAAAA       AAAAAA        AAAAAAA   AAAAAAA  AAAAAAAA   AAAAAAA     AAAAAAAAAAAAAAAAA         AAAAAAA   AAAAAA   AAAAAA   AAAAAAA      AAAAAAA    AAAAAAAAA  AAAAAAA     AAAAAAAAAAAAAAAAA          AAAAAAA AAAAAAAA               AAAAAAAAAAAAA  \n";Sleep(randomnum());
-		std::cout << "AAAAAAA             AAAAAA       AAAAAAAAAAAAAAAAAAAAA       AAAAAAA     AAAAAA AAAAAAAA   AAAAAAA      DAAAAAAA                   AAAAAA  AAAAAA    AAAAAAA AAAAAAA       AAAAAAA    AAAAAAAA   AAAAAAO     AAAAAA    AAAAAAAA         AAAAAAA AAAAAAAA                  AAAAAAAAAA  \n";Sleep(randomnum());
-		std::cout << "AAAAAAA            AAAAAAA      AAAAAAAAAAAAAAAAAAAAAAA      AAAAAAA     AAAAAA AAAAAA     AAAAAAA      AAAAAAA                    AAAAAA AAAAAA     AAAAAAA AAAAAA       AAAAAAAA             AAAAAAAA     AAAAAAA      AAAAAAA       AAAAAAAA  AAAAAAAA                    AAAAAAA  \n";Sleep(randomnum());
-		std::cout << "AAAAAAAA           AAAAAA      AAAAAAAAAAAAAAAAAAAAAAAA      AAAAAA      AAAAAAAAAAAA      AAAAAAA      AAAAAAA                    AAAAAA AAAAAA     AAAAAAAAAAAAAA        AAAAAAAG           AAAAAAAA      AAAAAAA      AAAAAAA       AAAAAAAQ   AAAAAAAA                   AAAAAAA  \n";Sleep(randomnum());
-		std::cout << "AAAAAAAAA         AAAAAAA     AAAAAAA            AAAAAA      AAAAAA       AAAAAAAAAA      AAAAAAA      AAAAAAA                     AAAAAAAAAAAA       AAAAAAAAAAA          AAAAAAAA          AAAAAAAA      AAAAAAAP       AAAAAA       AAAAAAA     AAAAAAAAAAAAAAA           AAAAAAA  \n";Sleep(randomnum());
-		std::cout << " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             AAAAAAAAAAAAAAAAA        AAAAAAAAA       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAAA        AAAAAAAAAAX           AAAAAAAAAAAAAAAAAAAAAAAA       AAAAAAA        AAAAAAA     AAAAAAAA     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    \n";Sleep(randomnum());
-		std::cout << "  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAA        AAAAAAAA        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA          AAAAAAAAAA         AAAAAAAAAA             AAAAAAAAAAAAAAAAAAAAA         AAAAAAA        WAAAAAAAAAAAAAAAAAA        AAAAAAAAAAAAAAAAAAAAAAAAAAAA     \n";Sleep(randomnum());
-		std::cout << "     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAA        AAAAAAA         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            AAAAAAAA          AAAAAAAAA                DAAAAAAAAAAAAAA            AAAAAAAA        AAAAAAAAAAAAAAAAAAA         AAAAAAAAAAAAAAAAAAAAAAAAQ       \n"; Sleep(3000);
-		//Almost as large as your mama!
+	int prevMode = _setmode(_fileno(stdout), _O_U16TEXT);
+	const wchar_t* lines[] = {
+		L"██╗      █████╗ ██████╗ ███████╗███╗   ███╗███████╗                            \n",
+		L"██║     ██╔══██╗██╔══██╗██╔════╝████╗ ████║██╔════╝                            \n",
+		L"██║     ███████║██║  ██║███████╗██╔████╔██║███████╗                            \n",
+		L"██║     ██╔══██║██║  ██║╚════██║██║╚██╔╝██║╚════██║                            \n",
+		L"███████╗██║  ██║██████╔╝███████║██║ ╚═╝ ██║███████║                            \n",
+		L"╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝                            \n",
+		L"                                                                               \n",
+		L" ██████╗  █████╗ ███╗   ███╗███████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗\n",
+		L"██╔════╝ ██╔══██╗████╗ ████║██╔════╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝██╔════╝\n",
+		L"██║  ███╗███████║██╔████╔██║█████╗  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝ ███████╗\n",
+		L"██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ██║███╗██║██║   ██║██╔══██╗██╔═██╗ ╚════██║\n",
+		L"╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████║\n",
+		L" ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝\n",
+	};
+	for (const wchar_t* ln : lines) {
+		std::wcout << ln;
+		Sleep(randomnum());
+	}
+	Sleep(1500);
+	if (prevMode != -1) {
+		_setmode(_fileno(stdout), prevMode);
+	}
 }

@@ -52,7 +52,8 @@ void MainMenu_splash() {
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
-        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\IntroMus.wav"), NULL, SND_FILENAME);
+        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\Menu_Start.wav"), NULL, SND_FILENAME);
+        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\Menu_End.wav"), NULL, SND_FILENAME | SND_ASYNC);
     }
     SetConsoleTextAttribute(h, 14);
     std::cout << "1. New game\n";
