@@ -14,8 +14,6 @@ bool NoStartUp = false;
 bool FullstaTs = false;
 bool devMode = false;
 
-using namespace std;
-
 int main(int argc, char* argv[]) {
     system("cls");
     for (int i = 1; i < argc; ++i) {

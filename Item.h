@@ -14,6 +14,7 @@ class item{
 public:
 	std::string itemName;
 	int itemId;
+	int type = 1;
 	virtual ~item() {}
 
 	bool operator==(int id) const { return itemId == id; }
@@ -31,33 +32,34 @@ class HealingItem : public item {
 public:
 	int HealAmount = 0;
 	HealingItem() = default;
-	HealingItem(std::string name, int id, int healAmount) {
-		itemName = name;
-		itemId = id;
-		HealAmount = healAmount;
+	HealingItem(std::string name, int id, int healAmount)
+		: item(name, id), HealAmount(healAmount) {
+		type = 2;
 	}
 	void Item_Heal(int HealAmount);
 	void Item_Use();
 };
 class WeaponItem : public item {
 public:
+	int type = 3;
 	int DamageOfWeapon;
 	WeaponItem() = default;
-	WeaponItem(std::string name, int id, int WeaponDamage) {
-		itemName = name;
-		itemId = id;
-		DamageOfWeapon = WeaponDamage;
+	WeaponItem(std::string name, int id, int WeaponDamage)
+		: item(name, id), DamageOfWeapon(WeaponDamage)
+	{
+		type = 3;
 	}
 };
 
 class DefenceItem : public item {
 public:
+	int type = 4;
 	int DefenceOfItem;
 	DefenceItem() = default;
-	DefenceItem(std::string name, int id, int ArmorDefence) {
-		itemName = name;
-		itemId = id;
-		DefenceOfItem = ArmorDefence;
+	DefenceItem(std::string name, int id, int ArmorDefence)
+		: item(name, id), DefenceOfItem(ArmorDefence)
+	{
+		type = 4;
 	}
 };
 

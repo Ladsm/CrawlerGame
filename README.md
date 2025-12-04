@@ -12,7 +12,8 @@ and other things.
 
 ### TODO
 
-- Actions.
+- Actions
+- Enemys
 - Story
 
 ## How to

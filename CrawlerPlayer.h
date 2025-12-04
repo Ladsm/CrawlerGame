@@ -20,15 +20,7 @@ public:
     int points = 5;
     std::string Crawler_Name;
 
-    void displayStats() const {
-        std::cout << "/--- Stats ---/\n";
-        std::cout << "Player Name : " << Crawler_Name << std::endl;
-        std::cout << "Health : " << Health << std::endl;
-        std::cout << "Damage : " << Damage << std::endl;
-        std::cout << "Defence : " << Defence << std::endl;
-        std::cout << "Intelligence : " << intelagince << std::endl;
-        std::cout << "Mobility : " << Mobility << std::endl;
-    }
+    void displayStats();
     void saveToFile(const std::string& filename) const;
     bool loadFromFile(const std::string& filename);
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include "MainMenu.h"
 #include "Item.h"
 
 class Inventory
@@ -65,7 +66,9 @@ public:
 
     void displayInventory() const {
         int four = 0;
+        textColor(1);
         std::cout << "/--- Inventory ---/\n";
+        textColor(2);
         for (int i = 0; i < 20; i++, four++) {
             if (inventory[i] && inventory[i]->itemId != 0) {
                 std::cout << i + 1 << '.' << inventory[i]->itemName << ", ";

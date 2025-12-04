@@ -12,6 +12,7 @@ extern CrawlerPlayer Crplayer;
 extern bool NoStartUp;
 extern bool FullstaTs;
 
+void textColor(int color);
 void AltEnterfullScreen();
 void Menu_Switch_Fail();
 void BeepSound();

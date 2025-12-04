@@ -32,6 +32,20 @@ void AltEnterfullScreen(){
     keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, 0);//Alt up
 }
 
+void textColor(int color) {
+    switch (color) {
+    case 1:
+        SetConsoleTextAttribute(h, 4);
+        break;
+    case 2:
+        SetConsoleTextAttribute(h, 7);
+        break;
+    default:
+        std::cout << "This programer is dumb\n";
+        break;
+    }
+}
+
 void MainMenu_splash() {
     if (NoStartUp == false) {
         PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
@@ -63,15 +77,17 @@ void MainMenu_splash() {
 }
 
 CrawlerPlayer MainMenu_NewGame() {
+    system("cls");
     CrawlerPlayer CrplayerLocal;
     if (FullstaTs == false) {
         CrplayerLocal.points = 5;
         int choice;
         std::cout << "What is your character's name?\n";
         std::getline(std::cin >> std::ws, CrplayerLocal.Crawler_Name);
+        system("cls");
         BeepSound();
         while (CrplayerLocal.points > 0) {
-            std::cout << "\n" << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
+            std::cout << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
             SetConsoleTextAttribute(h, 12);
             std::cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
             SetConsoleTextAttribute(h, 9);
@@ -108,13 +124,16 @@ CrawlerPlayer MainMenu_NewGame() {
                 Menu_Switch_Fail();
                 continue;
             }
+            system("cls");
             CrplayerLocal.points--;
         }
         std::cin.ignore();
         Story = 0;
+        system("cls");
         return CrplayerLocal;
     }
     else {
+        system("cls");
         return CrplayerLocal;
     }
 }
@@ -145,6 +164,7 @@ Loadfail:
         MainMenu = false;
         start = true;
         Crplayer.saveToFile(saveFile);
+        system("cls");
         break;
     case 2:
         BeepSound();
@@ -152,14 +172,17 @@ Loadfail:
             std::cout << "Game loaded!\n";
             MainMenu = false;
             start = true;
+            system("cls");
             break;
         }
         else {
+            system("cls");
             std::cout << "Failed to load game.\n";
             goto Loadfail;
         }
         break;
     case 3:
+        system("cls");
         exit(1);
         return 0;
     default:
