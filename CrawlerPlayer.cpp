@@ -28,6 +28,7 @@ void CrawlerPlayer::saveToFile(const std::string& filename) const {
     out << Mobility << std::endl;
     out << points << std::endl;
     out << Story << std::endl;
+    out << money << std::endl;
     for (int i = 0; i < 20; i++) {
         if (LocalInventory[i]) {
             out << LocalInventory[i]->type << std::endl;
@@ -56,6 +57,7 @@ bool CrawlerPlayer::loadFromFile(const std::string& filename) {
     in >> Mobility;
     in >> points;
     in >> Story;
+    in >> money;
     in.ignore((std::streamsize)2147483647, '\n');
     for (int i = 0; i < 20; i++) {
         int type = 0;

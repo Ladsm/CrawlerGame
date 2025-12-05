@@ -22,14 +22,17 @@ public:
     }
 
     bool Inv_RemoveItemFromInv_User(int itemPlacement) {
-        for (int i = 0; i < 20; i++) {
-            if (inventory[i] && *(inventory[i]) == itemPlacement) {
-                inventory[i].reset();
-                return true;
-            }
+        if (itemPlacement < 1 || itemPlacement > 20) {
+            std::cout << "Invalid slot\n";
+            return false;
         }
-        std::cout << "Not an item in the inventory\n";
-        return false;
+        int idx = itemPlacement - 1;
+        if (!inventory[idx] || inventory[idx]->itemId == 0) {
+            std::cout << "No item in that slot\n";
+            return false;
+        }
+        inventory[idx].reset();
+        return true;
     }
 
     bool Inv_RemoveItemFromInv_Forced(int id) {

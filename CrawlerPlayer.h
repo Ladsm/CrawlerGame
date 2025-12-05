@@ -18,6 +18,7 @@ public:
     int intelagince = 5;
     int Mobility = 5;
     int points = 5;
+    float money = 0;
     std::string Crawler_Name;
 
     void displayStats();

@@ -80,12 +80,16 @@ void Gamemenu_Action_Menu() {
     switch (choice)
     {
     case 1:
+        system("cls");
         break;
     case 2:
+        system("cls");
         break;
     case 3:
+        system("cls");
         break;
     case 4:
+        system("cls");
         break;
     case 5:
         system("cls");
@@ -109,7 +113,7 @@ void Gamemenu_Inventory_Write() {
 void Gamemenu_Inventory_Menu() {
     Gamemenu_Inventory_Write();
     int choice;
-    int placement = +1;
+    int placement =+1;
     std::cin >> choice;
     switch (choice) {
     case 1:
