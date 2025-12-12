@@ -2,6 +2,8 @@
 #include <iostream>
 #include "MainMenu.h"
 
+extern bool fight;
+
 class ActionItem {
 public:
     std::string ActionName;
@@ -14,18 +16,23 @@ public:
         ActionName = Name;
         StartFight = false;
     }
-    ActionItem(std::string Name, bool fight)/*Yes fight*/ {
+    ActionItem(std::string Name, bool fIght)/*Yes fight ie: starts fight*/ {
         ActionName = Name;
-        StartFight = fight;
+        StartFight = fIght;
+        fight = true;
     }
 };
 class ActionSet {
 public:
-    std::string SetName;
     ActionItem SetContents[4];
     void SetWrite();
-    ActionSet(std::string name, ActionItem one, ActionItem two, ActionItem three, ActionItem four) {
-        SetName = name;
+    ActionSet() {
+        SetContents[0] = ActionItem();
+        SetContents[1] = ActionItem();
+        SetContents[2] = ActionItem();
+        SetContents[3] = ActionItem();
+    }
+    ActionSet(ActionItem one, ActionItem two, ActionItem three, ActionItem four) {
         SetContents[0] = one;
         SetContents[1] = two;
         SetContents[2] = three;

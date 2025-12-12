@@ -1,10 +1,13 @@
-#include <iostream>
 #include <string>
 #include "MainMenu.h"
-#include "CrawlerPlayer.h"
 #include "Inventory.h"
+#include "ActionMenu.h"
 
+extern int Story;
+extern bool fight;
 extern Inventory LocalInventory;
+extern ActionSet DefaltSet;
+extern ActionMenu actionMenu;
 
 void Gamemenu_Inventory_Write();
 void Gamemenu_Inventory_Menu();
@@ -15,7 +18,8 @@ void Gamemenu_Large_Write() {
     SetConsoleTextAttribute(h, 4);
     std::cout << "/--- GAME MENU ---/\n";
     SetConsoleTextAttribute(h, 7);
-    std::cout << "1. Action\n";
+    if (!fight) { std::cout << "1. Action\n"; }
+    else { std::cout << "1. Fight\n"; }
     std::cout << "2. Stats and inventory\n";
     std::cout << "3. Save Game\n";
     std::cout << "4. Load Game\n";
@@ -61,15 +65,10 @@ void Gamemenu_Large_Menu() {
 }
 
 static void Gamemenu_Action_Write() {
-    SetConsoleTextAttribute(h, 4);
-    std::cout << "/--- Action MENU ---/\n";
-    SetConsoleTextAttribute(h, 7);
-    std::cout << "1. #NOT DONE\n";
-    std::cout << "2. #NOT DONE\n";
-    std::cout << "3. #NOT DONE\n";
-    std::cout << "4. #NOT DONE\n";
-    std::cout << "5. Back\n";
-    std::cout << "Enter the number of your choice\n";
+    switch (Story) {
+    case 0:
+        actionMenu.ActionWrite(DefaltSet);
+    }
 }
 
 void Gamemenu_Action_Menu() {

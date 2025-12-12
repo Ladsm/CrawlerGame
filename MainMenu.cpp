@@ -5,8 +5,6 @@
 #include <mmsystem.h>
 #include "CrawlerPlayer.h"
 #include "Item.h"
-#include <cmath>
-#include <iostream>
 #include <shlobj.h>
 #include <stdlib.h>
 #include "LDGWLogo.h"
