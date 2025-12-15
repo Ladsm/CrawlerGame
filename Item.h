@@ -41,7 +41,6 @@ public:
 };
 class WeaponItem : public item {
 public:
-	int type = 3;
 	int DamageOfWeapon;
 	WeaponItem() = default;
 	WeaponItem(std::string name, int id, int WeaponDamage)
@@ -53,7 +52,6 @@ public:
 
 class DefenceItem : public item {
 public:
-	int type = 4;
 	int DefenceOfItem;
 	DefenceItem() = default;
 	DefenceItem(std::string name, int id, int ArmorDefence)

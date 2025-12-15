@@ -18,7 +18,7 @@
     <ClCompile Include="CrawlerGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Menu_Externs.cpp">
+    <ClCompile Include="MenuExterns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
@@ -34,6 +34,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ActionMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameExterns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

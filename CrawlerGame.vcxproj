@@ -131,10 +131,11 @@
     <ClCompile Include="ActionMenu.cpp" />
     <ClCompile Include="CrawlerGame.cpp" />
     <ClCompile Include="CrawlerPlayer.cpp" />
+    <ClCompile Include="GameExterns.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuGame.cpp" />
-    <ClCompile Include="Menu_Externs.cpp" />
+    <ClCompile Include="MenuExterns.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMenu.h" />

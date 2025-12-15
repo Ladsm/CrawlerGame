@@ -1,10 +1,10 @@
-#include <windows.h>
 #include <shlobj.h>
 #include <fstream>
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
 #include "MenuGame.h"
 #include "Inventory.h"
+#include "ActionMenu.h"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
@@ -24,11 +24,11 @@ int main(int argc, char* argv[]) {
             devMode = true;
         }
     }
-    if (devMode == true) {}
-    else {
+    if(devMode == false) {
         AltEnterfullScreen();
     }
     checkIfUserIsCheater();
+    SetSets();
     init();
     while (MainMenu == true)
     {

@@ -4,28 +4,31 @@
 
 extern bool fight;
 
+void SetSets();
 class ActionItem {
 public:
     std::string ActionName;
-    bool StartFight;
+    int type;
     ActionItem() {
         ActionName = "#Fail";
-        StartFight = false;
+        type = 0;
     }
-    ActionItem(std::string Name)/*No fight*/ {
+    ActionItem(std::string Name, int Type) {
         ActionName = Name;
-        StartFight = false;
-    }
-    ActionItem(std::string Name, bool fIght)/*Yes fight ie: starts fight*/ {
-        ActionName = Name;
-        StartFight = fIght;
-        fight = true;
+        type = Type;
+        switch (Type) {
+        case 0:
+            break;
+        case 1:
+            fight = true;
+            break;
+        }
     }
 };
 class ActionSet {
 public:
     ActionItem SetContents[4];
-    void SetWrite();
+    void SetWrite() const;
     ActionSet() {
         SetContents[0] = ActionItem();
         SetContents[1] = ActionItem();
