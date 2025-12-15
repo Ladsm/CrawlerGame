@@ -65,7 +65,7 @@ void Gamemenu_Large_Menu() {
     }
 }
 
-static void Gamemenu_Action_Write() {
+void Gamemenu_Action_Write() {
     if (!fight) {
         switch (Story) {
         case 0:
@@ -80,31 +80,15 @@ static void Gamemenu_Action_Write() {
 
 void Gamemenu_Action_Menu() {
     Gamemenu_Action_Write();
-    int choice;
-    std::cin >> choice;
-    std::cin.ignore();
-    switch (choice)
-    {
-    case 1:
-        system("cls");
-        break;
-    case 2:
-        system("cls");
-        break;
-    case 3:
-        system("cls");
-        break;
-    case 4:
-        system("cls");
-        break;
-    case 5:
-        system("cls");
-        Gamemenu_Large_Menu();
-        break;
-    default:
-        system("cls");
-        Menu_Switch_Fail();
-        break;
+    if (!fight) {
+        switch (Story) {
+        case 0:
+            actionMenu.ActionMenuMenu(DefaltSet);
+            break;
+        }
+    }
+    else {
+        actionMenu.ActionMenuMenu(FightSet);
     }
 }
 

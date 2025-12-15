@@ -7,10 +7,11 @@
 class Inventory
 {
 public:
+    int const inventorySize = 20;
     std::unique_ptr<item> inventory[20]{};
 
     bool Inv_AddItemToInv(std::unique_ptr<item> newItem) {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < inventorySize; i++) {
             if (!inventory[i]) {
                 inventory[i] = std::move(newItem);
                 std::cout << "Added " << inventory[i]->itemName << " to your inventory\n";
@@ -22,7 +23,7 @@ public:
     }
 
     bool Inv_RemoveItemFromInv_User(int itemPlacement) {
-        if (itemPlacement < 1 || itemPlacement > 20) {
+        if (itemPlacement < 1 || itemPlacement > inventorySize) {
             std::cout << "Invalid slot\n";
             return false;
         }
@@ -36,7 +37,7 @@ public:
     }
 
     bool Inv_RemoveItemFromInv_Forced(int id) {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < inventorySize; i++) {
             if (inventory[i] && inventory[i]->itemId == id) {
                 inventory[i].reset();
                 return true;
@@ -47,7 +48,7 @@ public:
     }
 
     bool Inv_UseItem(int placement) {
-        if (placement < 1 || placement > 20) {
+        if (placement < 1 || placement > inventorySize) {
             std::cout << "Invalid slot\n";
             return false;
         }
@@ -72,7 +73,7 @@ public:
         textColor(1);
         std::cout << "/--- Inventory ---/\n";
         textColor(2);
-        for (int i = 0; i < 20; i++, four++) {
+        for (int i = 0; i < inventorySize; i++, four++) {
             if (inventory[i] && inventory[i]->itemId != 0) {
                 std::cout << i + 1 << '.' << inventory[i]->itemName << ", ";
                 if (four >= 4) {

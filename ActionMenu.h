@@ -1,28 +1,29 @@
 #pragma once
 #include <iostream>
 #include "MainMenu.h"
+#include "MenuGame.h"
 
 extern bool fight;
 
 void SetSets();
 class ActionItem {
+private:
+    enum {
+        undefinded,
+        startfight,
+        continuestory
+    };
 public:
     std::string ActionName;
     int type;
+    bool ActionDo(ActionItem WhatActionItem);
     ActionItem() {
         ActionName = "#Fail";
-        type = 0;
+        type = undefinded;
     }
     ActionItem(std::string Name, int Type) {
         ActionName = Name;
         type = Type;
-        switch (Type) {
-        case 0:
-            break;
-        case 1:
-            fight = true;
-            break;
-        }
     }
 };
 class ActionSet {
@@ -45,5 +46,5 @@ public:
 class ActionMenu {
 public:
     void ActionWrite(ActionSet WriteOptions);
+    void ActionMenuMenu(ActionSet SetActionItems);
 };
-
