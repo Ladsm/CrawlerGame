@@ -6,14 +6,14 @@ extern bool fight;
 ActionSet DefaltSet;
 ActionSet FightSet;
 ActionMenu actionMenu;
+ActionItem ActionFight;
 
 void SetSets() {
-    ActionItem ActionFight;
-    ActionFight.ActionName = "Fight";
+    ActionFight = ActionItem("Fight", 0);
     FightSet.SetContents[0] = ActionFight;
 }
 
-void ActionSet::SetWrite() {
+void ActionSet::SetWrite() const {
     std::cout << "1. " << SetContents[0].ActionName << '\n';
     std::cout << "2. " << SetContents[1].ActionName << '\n';
     std::cout << "3. " << SetContents[2].ActionName << '\n';
@@ -27,11 +27,9 @@ void ActionMenu::ActionWrite(ActionSet WriteOptions) {
     else{ std::cout << "/--- Fight MENU ---/\n";}
     textColor(2);
     if (!fight) {
-        WriteOptions.SetWrite();
-    }
+        WriteOptions.SetWrite(); }
     else {
-        FightSet.SetWrite();
-    }
+        FightSet.SetWrite(); }
     std::cout << "5. Back\n";
     std::cout << "Enter the number of your choice\n";
 }

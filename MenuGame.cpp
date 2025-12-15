@@ -7,6 +7,7 @@ extern int Story;
 extern bool fight;
 extern Inventory LocalInventory;
 extern ActionSet DefaltSet;
+extern ActionSet FightSet;
 extern ActionMenu actionMenu;
 
 void Gamemenu_Inventory_Write();
@@ -65,9 +66,15 @@ void Gamemenu_Large_Menu() {
 }
 
 static void Gamemenu_Action_Write() {
-    switch (Story) {
-    case 0:
-        actionMenu.ActionWrite(DefaltSet);
+    if (!fight) {
+        switch (Story) {
+        case 0:
+            actionMenu.ActionWrite(DefaltSet);
+            break;
+        }
+    }
+    else {
+        actionMenu.ActionWrite(FightSet);
     }
 }
 
