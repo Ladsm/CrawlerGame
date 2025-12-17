@@ -3,10 +3,10 @@
 #include "Inventory.h"
 #include "ActionMenu.h"
 
-extern int Story;
 extern bool fight;
 extern Inventory LocalInventory;
 extern ActionSet DefaltSet;
+extern ActionSet FirstSet;
 extern ActionSet FightSet;
 extern ActionMenu actionMenu;
 
@@ -14,6 +14,8 @@ void Gamemenu_Inventory_Write();
 void Gamemenu_Inventory_Menu();
 void Gamemenu_Action_Menu();
 void Menu_Loadgame();
+
+int Story = 0;
 
 void Gamemenu_Large_Write() {
     SetConsoleTextAttribute(h, 4);
@@ -29,7 +31,6 @@ void Gamemenu_Large_Write() {
 }
 
 void Gamemenu_Large_Menu() {
-    Gamerunnin = true;
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
     Gamemenu_Large_Write();
     int choice;
@@ -71,6 +72,9 @@ void Gamemenu_Action_Write() {
         case 0:
             actionMenu.ActionWrite(DefaltSet);
             break;
+        case 1:
+            actionMenu.ActionWrite(FirstSet);
+            break;
         }
     }
     else {
@@ -84,6 +88,9 @@ void Gamemenu_Action_Menu() {
         switch (Story) {
         case 0:
             actionMenu.ActionMenuMenu(DefaltSet);
+            break;
+        case 1:
+            actionMenu.ActionMenuMenu(FirstSet);
             break;
         }
     }

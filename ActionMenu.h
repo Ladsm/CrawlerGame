@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "MainMenu.h"
 #include "MenuGame.h"
 
@@ -11,11 +10,24 @@ private:
     enum {
         undefinded,
         startfight,
-        continuestory
+        continuestory,
+        SaySomeThing
     };
+    void writeFromText() const {
+        std::cout << TextToWrite;
+    }
 public:
     std::string ActionName;
     int type;
+    std::string TextToWrite = ".";
+    void WriteWithIf() {
+        if (TextToWrite == ".") {
+            return;
+        }
+        else {
+            writeFromText();
+        }
+    }
     bool ActionDo(ActionItem WhatActionItem);
     ActionItem() {
         ActionName = "#Fail";
@@ -24,6 +36,11 @@ public:
     ActionItem(std::string Name, int Type) {
         ActionName = Name;
         type = Type;
+    }
+    ActionItem(std::string Name, int Type, std::string Text) {
+        ActionName = Name;
+        type = Type;
+        TextToWrite = Text;
     }
 };
 class ActionSet {

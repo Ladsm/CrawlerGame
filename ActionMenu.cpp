@@ -3,14 +3,20 @@
 #include "MenuGame.h"
 
 extern bool fight;
-extern int Story;
 
-ActionSet DefaltSet;
-ActionSet FightSet;
+//<=- defalts -=>
 ActionMenu actionMenu;
+ActionSet DefaltSet;
+//<=- FirstSet -=>
+ActionSet FirstSet;
+ActionItem tester;
+//<=- FightSet -=>
+ActionSet FightSet;
 ActionItem ActionFight;
 
 void SetSets() {
+    tester = ActionItem("Test", 2, "This worked");
+    FirstSet.SetContents[0] = tester;
     ActionFight = ActionItem("Fight", 0);
     FightSet.SetContents[0] = ActionFight;
 }
@@ -24,10 +30,16 @@ bool ActionItem::ActionDo(ActionItem WhatActionItem) {
         break;
     case startfight:
         fight = true;
+        WriteWithIf();
         return true;
         break;
     case continuestory:
         Story++;
+        WriteWithIf();
+        return true;
+        break;
+    case SaySomeThing:
+        WriteWithIf();
         return true;
         break;
     }
@@ -84,6 +96,10 @@ void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
         case 5:
             system("cls");
             Gamemenu_Large_Menu();
+            break;
+        default:
+            system("cls");
+            Menu_Switch_Fail();
             break;
         }
     }
