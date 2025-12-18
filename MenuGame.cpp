@@ -4,6 +4,7 @@
 #include "ActionMenu.h"
 
 extern bool fight;
+extern bool devMode;
 extern Inventory LocalInventory;
 extern ActionSet DefaltSet;
 extern ActionSet FirstSet;
@@ -15,7 +16,7 @@ void Gamemenu_Inventory_Menu();
 void Gamemenu_Action_Menu();
 void Menu_Loadgame();
 
-int Story = 0;
+int Story = 1;
 
 void Gamemenu_Large_Write() {
     SetConsoleTextAttribute(h, 4);
@@ -75,6 +76,9 @@ void Gamemenu_Action_Write() {
         case 1:
             actionMenu.ActionWrite(FirstSet);
             break;
+        default:
+            actionMenu.ActionWrite(DefaltSet);
+            break;
         }
     }
     else {
@@ -92,6 +96,9 @@ void Gamemenu_Action_Menu() {
         case 1:
             actionMenu.ActionMenuMenu(FirstSet);
             break;
+        default:
+            actionMenu.ActionMenuMenu(DefaltSet);
+            break;
         }
     }
     else {
@@ -100,6 +107,9 @@ void Gamemenu_Action_Menu() {
 }
 
 void Gamemenu_Inventory_Write() {
+    if (devMode == true) {
+        std::cout << "Story = " << Story << '\n';
+    }
     Crplayer.displayStats();
     LocalInventory.displayInventory();
     std::cout << "1. Use an item from inventory\n";

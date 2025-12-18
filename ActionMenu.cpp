@@ -17,8 +17,6 @@ ActionItem ActionFight;
 void SetSets() {
     tester = ActionItem("Test", 2, "This worked");
     FirstSet.SetContents[0] = tester;
-    ActionFight = ActionItem("Fight", 0);
-    FightSet.SetContents[0] = ActionFight;
 }
 
 bool ActionItem::ActionDo(ActionItem WhatActionItem) {
@@ -46,11 +44,19 @@ bool ActionItem::ActionDo(ActionItem WhatActionItem) {
     return false;
 }
 
-void ActionSet::SetWrite() const {
-    std::cout << "1. " << SetContents[0].ActionName << '\n';
-    std::cout << "2. " << SetContents[1].ActionName << '\n';
-    std::cout << "3. " << SetContents[2].ActionName << '\n';
-    std::cout << "4. " << SetContents[3].ActionName << '\n';
+void ActionSet::SetWrite(ActionSet SetToWrite){
+    if (!SetToWrite.SetContents[0].type == 0) {
+        std::cout << "1. " << SetToWrite.SetContents[0].ActionName << '\n';
+    }
+    if (!SetToWrite.SetContents[1].type == 0) {
+        std::cout << "2. " << SetToWrite.SetContents[1].ActionName << '\n';
+    }
+    if (!SetToWrite.SetContents[2].type == 0) {
+        std::cout << "3. " << SetToWrite.SetContents[2].ActionName << '\n';
+    }
+    if (!SetToWrite.SetContents[3].type == 0) {
+        std::cout << "4. " << SetToWrite.SetContents[3].ActionName << '\n';
+    }
 }
 
 void ActionMenu::ActionWrite(ActionSet WriteOptions) {
@@ -60,9 +66,9 @@ void ActionMenu::ActionWrite(ActionSet WriteOptions) {
     else{ std::cout << "/--- Fight MENU ---/\n";}
     textColor(2);
     if (!fight) {
-        WriteOptions.SetWrite(); }
+        WriteOptions.SetWrite(WriteOptions); }
     else {
-        FightSet.SetWrite(); }
+        FightSet.SetWrite(FightSet); }
     std::cout << "5. Back\n";
     std::cout << "Enter the number of your choice\n";
 }
@@ -74,23 +80,31 @@ void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
         std::cin.ignore();
         switch (choice) {
         case 1:
-            SetActionItems.SetContents[0].ActionDo(SetActionItems.SetContents[0]);
             system("cls");
+            if (!SetActionItems.SetContents[0].type == 0) {
+                SetActionItems.SetContents[0].ActionDo(SetActionItems.SetContents[0]);
+            }
             Gamemenu_Action_Menu();
             break;
         case 2:
-            SetActionItems.SetContents[1].ActionDo(SetActionItems.SetContents[1]);
             system("cls");
+            if (!SetActionItems.SetContents[1].type == 0) {
+                SetActionItems.SetContents[1].ActionDo(SetActionItems.SetContents[1]);
+            }
             Gamemenu_Action_Menu();
             break;
         case 3:
-            SetActionItems.SetContents[2].ActionDo(SetActionItems.SetContents[2]);
             system("cls");
+            if (!SetActionItems.SetContents[2].type == 0) {
+                SetActionItems.SetContents[2].ActionDo(SetActionItems.SetContents[2]);
+            }
             Gamemenu_Action_Menu();
             break;
         case 4:
-            SetActionItems.SetContents[3].ActionDo(SetActionItems.SetContents[3]);
             system("cls");
+            if (!SetActionItems.SetContents[3].type == 0) {
+                SetActionItems.SetContents[3].ActionDo(SetActionItems.SetContents[3]);
+            }
             Gamemenu_Action_Menu();
             break;
         case 5:
@@ -99,6 +113,7 @@ void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
             break;
         default:
             system("cls");
+            Gamemenu_Action_Menu();
             Menu_Switch_Fail();
             break;
         }

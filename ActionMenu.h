@@ -14,7 +14,7 @@ private:
         SaySomeThing
     };
     void writeFromText() const {
-        std::cout << TextToWrite;
+        std::cout << TextToWrite << '\n';
     }
 public:
     std::string ActionName;
@@ -46,12 +46,24 @@ public:
 class ActionSet {
 public:
     ActionItem SetContents[4];
-    void SetWrite() const;
+    void SetWrite(ActionSet SetToWrite);
     ActionSet() {
         SetContents[0] = ActionItem();
         SetContents[1] = ActionItem();
         SetContents[2] = ActionItem();
         SetContents[3] = ActionItem();
+    }
+    ActionSet(ActionItem one) {
+        SetContents[0] = one;
+    }
+    ActionSet(ActionItem one, ActionItem two) {
+        SetContents[0] = one;
+        SetContents[1] = two;
+    }
+    ActionSet(ActionItem one, ActionItem two, ActionItem three) {
+        SetContents[0] = one;
+        SetContents[1] = two;
+        SetContents[2] = three;
     }
     ActionSet(ActionItem one, ActionItem two, ActionItem three, ActionItem four) {
         SetContents[0] = one;

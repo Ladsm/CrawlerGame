@@ -126,7 +126,7 @@ CrawlerPlayer MainMenu_NewGame() {
             CrplayerLocal.points--;
         }
         std::cin.ignore();
-        Story = 0;
+        Story = 1;
         system("cls");
         return CrplayerLocal;
     }
