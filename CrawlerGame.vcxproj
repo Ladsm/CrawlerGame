@@ -144,6 +144,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="LDGWLogo.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MenuExterns.h" />
     <ClInclude Include="MenuGame.h" />
     <ClInclude Include="resource1.h" />
   </ItemGroup>

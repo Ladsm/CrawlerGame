@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "Item.h"
 
 extern int Story;
 class Inventory;
@@ -20,7 +21,10 @@ public:
     int points = 5;
     float money = 0;
     std::string Crawler_Name;
+    WeaponItem currentWeapon = Stick;
+    DefenceItem currentArmor = ClothShirt;
 
+    CrawlerPlayer() = default;
     void displayStats();
     void saveToFile(const std::string& filename) const;
     bool loadFromFile(const std::string& filename);

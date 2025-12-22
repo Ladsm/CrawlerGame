@@ -41,7 +41,7 @@ public:
 };
 class WeaponItem : public item {
 public:
-	int DamageOfWeapon;
+	int DamageOfWeapon = 0;
 	WeaponItem() = default;
 	WeaponItem(std::string name, int id, int WeaponDamage)
 		: item(name, id), DamageOfWeapon(WeaponDamage)
@@ -52,7 +52,7 @@ public:
 
 class DefenceItem : public item {
 public:
-	int DefenceOfItem;
+	int DefenceOfItem = 0;
 	DefenceItem() = default;
 	DefenceItem(std::string name, int id, int ArmorDefence)
 		: item(name, id), DefenceOfItem(ArmorDefence)
@@ -61,4 +61,6 @@ public:
 	}
 };
 
+void ItemUseWeapon(WeaponItem weapon);
+void ItemUseArmor(DefenceItem Armor);
 bool FastItemToInv(std::unique_ptr<item> newItem);

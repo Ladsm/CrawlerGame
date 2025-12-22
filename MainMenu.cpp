@@ -8,6 +8,7 @@
 #include <shlobj.h>
 #include <stdlib.h>
 #include "LDGWLogo.h"
+#include "MenuExterns.h"
 #pragma comment(lib, "Winmm.lib")
 
 extern int Story;
@@ -15,7 +16,6 @@ extern bool start;
 extern HANDLE h;
 extern bool MainMenu;
 extern bool Gamerunnin;
-extern CrawlerPlayer Crplayer;
 extern bool NoStartUp;
 extern bool FullstaTs;
 extern bool devMode;
@@ -74,7 +74,7 @@ void MainMenu_splash() {
     SetConsoleTextAttribute(h, 7);
 }
 
-CrawlerPlayer MainMenu_NewGame() {
+static CrawlerPlayer MainMenu_NewGame() {
     system("cls");
     CrawlerPlayer CrplayerLocal;
     if (FullstaTs == false) {

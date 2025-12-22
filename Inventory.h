@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include "MenuExterns.h"
 #include "MainMenu.h"
 #include "Item.h"
 
@@ -19,6 +20,16 @@ public:
             }
         }
         std::cout << "Inventory full!\n";
+        return false;
+    }
+
+    bool Inv_AddItemToInvHidden(std::unique_ptr<item> newItem) {
+        for (int i = 0; i < inventorySize; i++) {
+            if (!inventory[i]) {
+                inventory[i] = std::move(newItem);
+                return true;
+            }
+        }
         return false;
     }
 
@@ -63,6 +74,14 @@ public:
                 inventory[idx].reset();
             }
             return true;
+        }
+        if (auto pWeapon = dynamic_cast<WeaponItem*>(inventory[idx].get())) {
+            WeaponItem weapon = WeaponItem(pWeapon->itemName, pWeapon->itemId, pWeapon->DamageOfWeapon);
+            ItemUseWeapon(weapon);
+        }
+        if (auto pArmor = dynamic_cast<DefenceItem*>(inventory[idx].get())) {
+            DefenceItem weapon = DefenceItem(pArmor->itemName, pArmor->itemId, pArmor->DefenceOfItem);
+            ItemUseArmor(weapon);
         }
         std::cout << "That item cannot be used\n";
         return false;

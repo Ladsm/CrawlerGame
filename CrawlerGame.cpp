@@ -5,6 +5,7 @@
 #include "MenuGame.h"
 #include "Inventory.h"
 #include "ActionMenu.h"
+#include "MenuExterns.h"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;

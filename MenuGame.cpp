@@ -2,6 +2,7 @@
 #include "MainMenu.h"
 #include "Inventory.h"
 #include "ActionMenu.h"
+#include "MenuExterns.h"
 
 extern bool fight;
 extern bool devMode;

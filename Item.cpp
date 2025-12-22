@@ -5,6 +5,7 @@
 #include "CrawlerPlayer.h"
 #include "Item.h"
 #include "Inventory.h"
+#include "MenuExterns.h"
 
 extern Inventory LocalInventory;
 
@@ -28,8 +29,18 @@ void HealingItem::Item_Use() {
 	Item_Heal(HealAmount);
 }
 
+void ItemUseWeapon(WeaponItem weapon) {
+	Crplayer.currentWeapon = weapon;
+}
+void ItemUseArmor(DefenceItem Armor) {
+	Crplayer.currentArmor = Armor;
+}
+
 bool FastItemToInv(std::unique_ptr<item> newItem) {
 	return LocalInventory.Inv_AddItemToInv(std::move(newItem));
+}
+bool FastItemToInvHidden(std::unique_ptr<item> newItem) {
+	return LocalInventory.Inv_AddItemToInvHidden(std::move(newItem));
 }
 
 /*
@@ -42,9 +53,12 @@ auto codeItemName = std::make_unique<WeaponItem>("itemname", number id, weapon d
 auto codeItemName = std::make_unique<DefenceItem>("itemname", number id, defence amount); For Defence items
 The way to add items to the inventory:
 FastItemToInv(std::move(codeItemName));
+FastItemToInvHidden(std::move(codeItemName)); // If you want it to be silent
 */
 
 void init() {
-	auto healtest = std::make_unique<HealingItem>("Heal test", 2, 20);
-	//FastItemToInv(std::move(healtest));
+	auto Stick = std::make_unique<WeaponItem>("Stick", 31, 3);
+	auto ClothShirt = std::make_unique<DefenceItem>("Cloth Shirt", 41, 3);
+	FastItemToInvHidden(std::move(Stick));
+	FastItemToInvHidden(std::move(ClothShirt));
 }
