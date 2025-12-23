@@ -70,20 +70,22 @@ bool CrawlerPlayer::loadFromFile(const std::string& filename) {
     in >> Story;
     in >> money;
     for (int i = 0; i < 20; i++) {
-        in >> LocalInventory[i]->itemId;
-        in >> LocalInventory[i]->itemName;
-        in >> LocalInventory[i]->type;
-        if (LocalInventory[i]->type == 2) {
-            auto temp = static_cast<HealingItem*>(LocalInventory[i].get());
-            in >> temp->HealAmount;
-        }
-        if (LocalInventory[i]->type == 3) {
-            auto temp = static_cast<WeaponItem*>(LocalInventory[i].get());
-            in >> temp->DamageOfWeapon;
-        }
-        if (LocalInventory[i]->type == 4) {
-            auto temp = static_cast<DefenceItem*>(LocalInventory[i].get());
-            in >> temp->DefenceOfItem;
+        if (LocalInventory[i]) {
+            in >> LocalInventory[i]->itemId;
+            in >> LocalInventory[i]->itemName;
+            in >> LocalInventory[i]->type;
+            if (LocalInventory[i]->type == 2) {
+                auto temp = static_cast<HealingItem*>(LocalInventory[i].get());
+                in >> temp->HealAmount;
+            }
+            if (LocalInventory[i]->type == 3) {
+                auto temp = static_cast<WeaponItem*>(LocalInventory[i].get());
+                in >> temp->DamageOfWeapon;
+            }
+            if (LocalInventory[i]->type == 4) {
+                auto temp = static_cast<DefenceItem*>(LocalInventory[i].get());
+                in >> temp->DefenceOfItem;
+            }
         }
     }
     return true;

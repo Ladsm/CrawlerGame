@@ -12,12 +12,15 @@ extern Inventory LocalInventory;
 
 class CrawlerPlayer
 {
+private:
+    WeaponItem Stick = WeaponItem("Stick", 31, 3);
+    DefenceItem ClothShirt = DefenceItem("Cloth Shirt", 41, 3);
 public:
     int Health = 100;
-    int Damage = 5;
-    int Defence = 5;
-    int intelagince = 5;
-    int Mobility = 5;
+    int Damage = 3;
+    int Defence = 3;
+    int intelagince = 3;
+    int Mobility = 3;
     int points = 5;
     float money = 0;
     std::string Crawler_Name;
