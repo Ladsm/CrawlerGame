@@ -6,6 +6,7 @@
 #include "Inventory.h"
 #include "ActionMenu.h"
 #include "MenuExterns.h"
+#include "GameExterns.h"
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 Inventory LocalInventory;
@@ -46,6 +47,7 @@ int main(int argc, char* argv[]) {
     while (Gamerunnin == true)
     {
         Gamemenu_Large_Menu();
+        CurrentEntity.checkHealthOfEntity();
         if (Crplayer.Health <= 0) {
             PlayerDead();
         }

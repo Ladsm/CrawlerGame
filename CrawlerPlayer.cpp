@@ -3,8 +3,16 @@
 #include "CrawlerPlayer.h"
 #include "Inventory.h"
 #include "Item.h"
+#include "GameExterns.h"
 
 extern Inventory LocalInventory;
+
+void CrawlerPlayer::attackEntity() {
+    int DaMagetogive = Damage * currentWeapon.DamageOfWeapon;
+    CurrentEntity.health - DaMagetogive;
+    std::cout << "You delt : " << DaMagetogive << "Damage to " << CurrentEntity.name << '\n';
+    return;
+}
 
 void CrawlerPlayer::displayStats() {
     textColor(1);

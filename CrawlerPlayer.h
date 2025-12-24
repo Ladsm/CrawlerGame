@@ -27,6 +27,7 @@ public:
     WeaponItem currentWeapon = Stick;
     DefenceItem currentArmor = ClothShirt;
 
+    void attackEntity();
     CrawlerPlayer() = default;
     void displayStats();
     void saveToFile(const std::string& filename) const;
