@@ -7,7 +7,6 @@ and other things.
 
 ### TODO
 
-- Enemys
 - Story
 
 ## How to
