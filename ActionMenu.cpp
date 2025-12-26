@@ -10,13 +10,15 @@ ActionSet DefaltSet;
 //<=- FirstSet -=>
 ActionSet FirstSet;
 ActionItem tester;
-//<=- FightSet -=>
-ActionSet FightSet;
-ActionItem ActionFight;
+ActionItem StartFights;
+Entity Slime;
 
 void SetSets() {
     tester = ActionItem("Test", 2, "This worked");
     FirstSet.SetContents[0] = tester;
+    Slime = Entity("Slime", 100, 10, 10, "A slime smuthers through");
+    StartFights = ActionItem("Start a fight?", Slime);
+    FirstSet.SetContents[1] = StartFights;
 }
 
 bool ActionItem::ActionDo(ActionItem WhatActionItem) {
@@ -29,6 +31,7 @@ bool ActionItem::ActionDo(ActionItem WhatActionItem) {
     case startfight:
         fight = true;
         WriteWithIf();
+        CurrentEntity.Encounter();
         return true;
         break;
     case continuestory:
@@ -59,22 +62,56 @@ void ActionSet::SetWrite(ActionSet SetToWrite){
     }
 }
 
+void ActionMenu::FightActionMenu() {
+    textColor(1);
+    std::cout << "/--- Fight MENU ---/\n";
+    textColor(2);
+    std::cout << "1. Attack\n";
+    std::cout << "2. Defend\n";
+    std::cout << "3. Enemy info\n";
+    std::cout << "5. Back\n";
+    int choice;
+    std::cin >> choice;
+    std::cin.ignore();
+    switch (choice) {
+    case 1:
+        system("cls");
+        Crplayer.attackEntity();
+        break;
+    case 2:
+        system("cls");
+        Crplayer.defendfromEntity();
+        break;
+    case 3:
+        system("cls");
+        Crplayer.EntityInfo();
+        break;
+    case 5:
+        system("cls");
+        Gamemenu_Large_Menu();
+        break;
+    default:
+        system("cls");
+        Gamemenu_Action_Menu();
+        Menu_Switch_Fail();
+        break;
+    }
+}
+
 void ActionMenu::ActionWrite(ActionSet WriteOptions) {
     textColor(1);
-    if (!fight){
-    std::cout << "/--- Action MENU ---/\n";}
-    else{ std::cout << "/--- Fight MENU ---/\n";}
+    std::cout << "/--- Action MENU ---/\n";
     textColor(2);
     if (!fight) {
-        WriteOptions.SetWrite(WriteOptions); }
-    else {
-        FightSet.SetWrite(FightSet); }
+        WriteOptions.SetWrite(WriteOptions);
+    }
     std::cout << "5. Back\n";
     std::cout << "Enter the number of your choice\n";
 }
 
 void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
     if (!fight) {
+        ActionWrite(SetActionItems);
         int choice;
         std::cin >> choice;
         std::cin.ignore();
@@ -117,9 +154,5 @@ void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
             Menu_Switch_Fail();
             break;
         }
-    }
-    else {
-        //Later
-        system("cls");
     }
 }

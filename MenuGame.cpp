@@ -68,27 +68,7 @@ void Gamemenu_Large_Menu() {
     }
 }
 
-void Gamemenu_Action_Write() {
-    if (!fight) {
-        switch (Story) {
-        case 0:
-            actionMenu.ActionWrite(DefaltSet);
-            break;
-        case 1:
-            actionMenu.ActionWrite(FirstSet);
-            break;
-        default:
-            actionMenu.ActionWrite(DefaltSet);
-            break;
-        }
-    }
-    else {
-        actionMenu.ActionWrite(FightSet);
-    }
-}
-
 void Gamemenu_Action_Menu() {
-    Gamemenu_Action_Write();
     if (!fight) {
         switch (Story) {
         case 0:
@@ -103,7 +83,7 @@ void Gamemenu_Action_Menu() {
         }
     }
     else {
-        actionMenu.ActionMenuMenu(FightSet);
+        actionMenu.FightActionMenu();
     }
 }
 
@@ -152,7 +132,9 @@ void Gamemenu_Inventory_Menu() {
 void PlayerDead() {
     int choice;
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
+    textColor(1);
     std::cout << "/--- YOU DEAD ---/\n";
+    textColor(2);
     std::cout << "1. Continue from last save\n";
     std::cout << "2. Quit\n";
     std::cin >> choice;

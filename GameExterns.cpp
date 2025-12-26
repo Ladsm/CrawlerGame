@@ -3,4 +3,5 @@
 class Entity;
 
 bool fight = false;
-Entity CurrentEntity = Entity("...", 0, 0, 0);
+bool Defend = false;
+Entity CurrentEntity = Entity("...", 1, 1, 1, "It will change...");

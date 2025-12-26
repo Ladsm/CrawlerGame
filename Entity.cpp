@@ -4,10 +4,10 @@
 #include "CrawlerPlayer.h"
 
 void Entity::AttackPlayer() {
-	int baseDamage = Crplayer.Health - attack;
-	int defenceDeviders = Crplayer.Defence + Crplayer.currentArmor.DefenceOfItem;
-	int ammountOfDamage = baseDamage / defenceDeviders;
-	Crplayer.Health - ammountOfDamage;
-	std::cout << name << " hit you and delt : " << ammountOfDamage << " damage\n";
+	int x = ammountOfDamage();
+	for (int i = 0; i < x; i++) {
+		Crplayer.Health--;
+	}
+	std::cout << name << " hit you and delt : " << x << " damage\n";
 	return;
 }

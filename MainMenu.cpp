@@ -45,7 +45,7 @@ void textColor(int color) {
 }
 
 void MainMenu_splash() {
-    if (NoStartUp == false) {
+    if (!NoStartUp) {
         PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
         LogoSplash();
         system("cls"); Sleep(1000);
@@ -77,7 +77,7 @@ void MainMenu_splash() {
 static CrawlerPlayer MainMenu_NewGame() {
     system("cls");
     CrawlerPlayer CrplayerLocal;
-    if (FullstaTs == false) {
+    if (!FullstaTs) {
         CrplayerLocal.points = 5;
         int choice;
         std::cout << "What is your character's name?\n";
@@ -119,6 +119,7 @@ static CrawlerPlayer MainMenu_NewGame() {
                 CrplayerLocal.Mobility++;
                 break;
             default:
+                system("cls");
                 Menu_Switch_Fail();
                 continue;
             }

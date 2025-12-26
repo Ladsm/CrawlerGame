@@ -9,8 +9,30 @@ extern Inventory LocalInventory;
 
 void CrawlerPlayer::attackEntity() {
     int DaMagetogive = Damage * currentWeapon.DamageOfWeapon;
-    CurrentEntity.health - DaMagetogive;
-    std::cout << "You delt : " << DaMagetogive << "Damage to " << CurrentEntity.name << '\n';
+    for (int i = 0; i < DaMagetogive; i++) {
+        CurrentEntity.health--;
+    }
+    std::cout << "You delt : " << DaMagetogive << " damage to " << CurrentEntity.name << '\n';
+    return;
+}
+
+void CrawlerPlayer::defendfromEntity() {
+    CurrentEntity.attack = CurrentEntity.attack / 2;
+    Defend = true;
+}
+
+void CrawlerPlayer::revertdefendfromEntity() {
+    CurrentEntity.attack = CurrentEntity.attack * 2;
+    Defend = false;
+}
+
+void CrawlerPlayer::EntityInfo() {
+    std::cout << "Name of enemy: " << CurrentEntity.name << '\n';
+    std::cout << "Health: " << CurrentEntity.health << '\n';
+    if (intelagince > 5) {
+        std::cout << "Amount of base attack: " << CurrentEntity.attack << '\n';
+        std::cout << "Amount of defence: " << CurrentEntity.defence << '\n';
+    }
     return;
 }
 
@@ -26,6 +48,7 @@ void CrawlerPlayer::displayStats() {
     std::cout << "Mobility : " << Mobility << '\n';
     std::cout << "Current Weapon : " << currentWeapon.itemName << '\n';
     std::cout << "Current Armor : " << currentArmor.itemName << '\n';
+    std::cout << "Cash : " << money << '\n';
 }
 
 void CrawlerPlayer::saveToFile(const std::string& filename) const {

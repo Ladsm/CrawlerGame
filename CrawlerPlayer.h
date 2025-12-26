@@ -28,6 +28,9 @@ public:
     DefenceItem currentArmor = ClothShirt;
 
     void attackEntity();
+    void defendfromEntity();
+    void revertdefendfromEntity();
+    void EntityInfo();
     CrawlerPlayer() = default;
     void displayStats();
     void saveToFile(const std::string& filename) const;

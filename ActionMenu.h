@@ -1,6 +1,8 @@
 #pragma once
 #include "MainMenu.h"
 #include "MenuGame.h"
+#include "Entity.h"
+#include "GameExterns.h"
 
 extern bool fight;
 
@@ -37,9 +39,20 @@ public:
         ActionName = Name;
         type = Type;
     }
+    ActionItem(std::string Name, Entity WhatEntity) {
+        ActionName = Name;
+        type = startfight;
+        CurrentEntity = WhatEntity;
+    }
     ActionItem(std::string Name, int Type, std::string Text) {
         ActionName = Name;
         type = Type;
+        TextToWrite = Text;
+    }
+    ActionItem(std::string Name, Entity WhatEntity, std::string Text) {
+        ActionName = Name;
+        type = startfight;
+        CurrentEntity = WhatEntity;
         TextToWrite = Text;
     }
 };
@@ -74,6 +87,7 @@ public:
 };
 class ActionMenu {
 public:
+    void FightActionMenu();
     void ActionWrite(ActionSet WriteOptions);
     void ActionMenuMenu(ActionSet SetActionItems);
 };
