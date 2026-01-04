@@ -3,6 +3,7 @@
 #include "Inventory.h"
 #include "ActionMenu.h"
 #include "MenuExterns.h"
+#include "resource1.h"
 
 extern bool fight;
 extern bool devMode;
@@ -58,7 +59,7 @@ void Gamemenu_Large_Menu() {
         break;
     case 5:
         system("cls");
-        PlaySound(TEXT("Sounds&Mus\\Gamemenu\\leaveing.wav"), NULL, SND_FILENAME);
+        PlaySound(MAKEINTRESOURCE(IDR_WAVE6), GetModuleHandle(NULL), SND_RESOURCE | SND_SYNC);
         exit(1);
         break;
     default:

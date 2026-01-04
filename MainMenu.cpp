@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "LDGWLogo.h"
 #include "MenuExterns.h"
+#include "resource1.h"
 #pragma comment(lib, "Winmm.lib")
 
 extern int Story;
@@ -46,8 +47,8 @@ void textColor(int color) {
 
 void MainMenu_splash() {
     if (!NoStartUp) {
-        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\LDGW.wav"), NULL, SND_ASYNC);
-        LogoSplash();
+        //PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+        //LogoSplash();
         system("cls"); Sleep(1000);
         std::cout << "                                                                Crawler                                                          \n";
         std::cout << "                                                                Game!                                                            \n";
@@ -64,8 +65,8 @@ void MainMenu_splash() {
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
-        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\Menu_Start.wav"), NULL, SND_FILENAME);
-        PlaySound(TEXT("Sounds&Mus\\Mainmenu\\Menu_End.wav"), NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(MAKEINTRESOURCE(IDR_WAVE5), GetModuleHandle(NULL), SND_RESOURCE | SND_SYNC);
+        PlaySound(MAKEINTRESOURCE(IDR_WAVE4), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
     }
     SetConsoleTextAttribute(h, 14);
     std::cout << "1. New game\n";
@@ -197,7 +198,7 @@ void Menu_Switch_Fail() {
 }
 
 void BeepSound() {
-    PlaySound(TEXT("Sounds&Mus\\Mainmenu\\BeepTwo.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    PlaySound(MAKEINTRESOURCE(IDR_WAVE2), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
 }
 
 void FullStats() {

@@ -157,6 +157,16 @@
   <ItemGroup>
     <Image Include="CrawlerGame.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wave1.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sounds&amp;Mus\Gamemenu\leaveing.wav" />
+    <Media Include="Sounds&amp;Mus\Mainmenu\BeepTwo.wav" />
+    <Media Include="Sounds&amp;Mus\Mainmenu\LDGW.wav" />
+    <Media Include="Sounds&amp;Mus\Mainmenu\Menu_End.wav" />
+    <Media Include="Sounds&amp;Mus\Mainmenu\Menu_Start.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
