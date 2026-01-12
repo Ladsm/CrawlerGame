@@ -47,8 +47,8 @@ void textColor(int color) {
 
 void MainMenu_splash() {
     if (!NoStartUp) {
-        //PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
-        //LogoSplash();
+        PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+        LogoSplash();
         system("cls"); Sleep(1000);
         std::cout << "                                                                Crawler                                                          \n";
         std::cout << "                                                                Game!                                                            \n";

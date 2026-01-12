@@ -2,8 +2,9 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CrawlerGame"
-#define MyAppVersion "0,00,5"
-#define MyAppPublisher "Barry Kotler"
+#define MyAppVersion "0,00,7"
+#define MyAppPublisher "Ladsm"
+#define MyAppURL "https://ladsm.neocities.org/CrawlerGame"
 #define MyAppExeName "CrawlerGame.exe"
 #define MyAppAssocName MyAppName + " Save File"
 #define MyAppAssocExt ".CrGS"
@@ -12,11 +13,14 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{A9799693-FD75-4F8A-A251-9DC9F6B9DE72}
+AppId={{2CE95A2B-6C29-4807-BEDF-6DAEDBE9DFE1}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
+AppPublisherURL={#MyAppURL}
+AppSupportURL={#MyAppURL}
+AppUpdatesURL={#MyAppURL}
 DefaultDirName={commonpf64}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run
@@ -31,20 +35,22 @@ ChangesAssociations=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
-OutputBaseFilename=CrawlerGameSetup
+OutputBaseFilename=CrawlerGame_Setup.exe
 SetupIconFile=D:\repo\CrawlerGame\Installer\CrawlerGame_Setup.ico
 SolidCompression=yes
 WizardStyle=modern
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "hebrew"; MessagesFile: "compiler:Languages\Hebrew.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
 Source: "D:\repo\CrawlerGame\x64\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\repo\CrawlerGame\x64\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\repo\CrawlerGame\x64\Debug\*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\repo\CrawlerGame\Release junk\*"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
