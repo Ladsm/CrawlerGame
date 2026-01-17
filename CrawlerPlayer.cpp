@@ -18,6 +18,9 @@ void CrawlerPlayer::attackEntity() {
 
 void CrawlerPlayer::defendfromEntity() {
     CurrentEntity.attack = CurrentEntity.attack / 2;
+    if (CurrentEntity.attack <= 0) {
+        CurrentEntity.attack = 2;
+    }
     Defend = true;
 }
 

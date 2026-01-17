@@ -52,11 +52,16 @@ int main(int argc, char* argv[])
                         }
                 }
         }
+        int defendThree = 0;
         while (Gamerunnin == true)
         {
                 if (Defend == true)
                 {
+                    defendThree++;
+                    if (defendThree > 3)
+                    {
                         Crplayer.revertdefendfromEntity();
+                    }
                 }
                 CurrentEntity.checkHealthOfEntity();
                 Gamemenu_Large_Menu();
