@@ -9,13 +9,18 @@ and other things.
 
 - Story
 
-## How to
+## How to...
 
-### How to set up sound
+### How to build
 
-To set up sound in the game you must build the program once and then place the Sounds&Mus directory in the same folder as the exicuteable.
+Required tools : 
 
-### How to share the game
+- a c++ compiler
+- CMake
 
-To share the game ; compile the project in relese, place all the files in the Release junk directory and place them in the same folder as the relese exacuteable.
-Then use Inno instaler to set up an instaler, and KABLAO! share as much as you want.
+```sh
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```

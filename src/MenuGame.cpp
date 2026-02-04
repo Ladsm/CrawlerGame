@@ -3,7 +3,10 @@
 #include "Inventory.h"
 #include "ActionMenu.h"
 #include "MenuExterns.h"
+#if defined(_WIN32)
 #include "resource1.h"
+#endif
+#include <cstdlib>
 
 extern bool fight;
 extern bool devMode;
@@ -21,9 +24,13 @@ void Menu_Loadgame();
 int Story = 1;
 
 void Gamemenu_Large_Write() {
+#if defined(_WIN32)
     SetConsoleTextAttribute(h, 4);
+#endif
     std::cout << "/--- GAME MENU ---/\n";
+#if defined(_WIN32)
     SetConsoleTextAttribute(h, 7);
+#endif
     if (!fight) { std::cout << "1. Action\n"; }
     else { std::cout << "1. Fight\n"; }
     std::cout << "2. Stats and inventory\n";
@@ -34,36 +41,42 @@ void Gamemenu_Large_Write() {
 }
 
 void Gamemenu_Large_Menu() {
+#if defined(_WIN32)
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
+#elif defined(__linux__)
+    std::string saveFile = "savegame.CrGS";
+#endif
     Gamemenu_Large_Write();
     int choice;
     std::cin >> choice;
     std::cin.ignore();
     switch (choice) {
     case 1:
-        system("cls");
+        clear();
         Gamemenu_Action_Menu();
         break;
     case 2:
-        system("cls");
+        clear();
         Gamemenu_Inventory_Menu();
         break;
     case 3:
-        system("cls");
+        clear();
         Crplayer.saveToFile(saveFile);
         std::cout << "Game saved!\n";
         break;
     case 4:
-        system("cls");
+        clear();
         Menu_Loadgame();
         break;
     case 5:
-        system("cls");
+        clear();
+#if defined(_WIN32)
         PlaySound(MAKEINTRESOURCE(IDR_WAVE6), GetModuleHandle(NULL), SND_RESOURCE | SND_SYNC);
-        exit(1);
+#endif
+        std::_Exit(0);
         break;
     default:
-        system("cls");
+        clear();
         Menu_Switch_Fail();
         break;
     }
@@ -109,22 +122,22 @@ void Gamemenu_Inventory_Menu() {
         std::cout << "Which item do you want to use?\n";
         std::cin >> placement;
         LocalInventory.Inv_UseItem(placement);
-        system("cls");
+        clear();
         Gamemenu_Inventory_Menu();
         break;
     case 2:
         std::cout << "Which item do you want to remove?\n";
         std::cin >> placement;
         LocalInventory.Inv_RemoveItemFromInv_User(placement);
-        system("cls");
+        clear();
         Gamemenu_Inventory_Menu();
         break;
     case 3:
-        system("cls");
+        clear();
         Gamemenu_Large_Menu();
         break;
     default:
-        system("cls");
+        clear();
         Menu_Switch_Fail();
         Gamemenu_Inventory_Menu();
     }
@@ -132,7 +145,11 @@ void Gamemenu_Inventory_Menu() {
 
 void PlayerDead() {
     int choice;
+#if defined(_WIN32)
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
+#elif defined(__linux__)
+    std::string saveFile = "savegame.CrGS";
+#endif
     textColor(1);
     std::cout << "/--- YOU DEAD ---/\n";
     textColor(2);
@@ -142,18 +159,18 @@ void PlayerDead() {
     switch (choice)
     {
     case 1:
-        system("cls");
+        clear();
         if (Crplayer.loadFromFile(saveFile))
             std::cout << "Game loaded!\n";
         else
             std::cout << "Failed to load game.\n";
         break;
     case 2:
-        system("cls");
-        exit(1);
+        clear();
+        std::_Exit(0);
         break;
     default:
-        system("cls");
+        clear();
         Menu_Switch_Fail();
         break;
     }
@@ -161,7 +178,11 @@ void PlayerDead() {
 
 void Menu_Loadgame() {
     int choice;
+#if defined(_WIN32)
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
+#elif defined(__linux__)
+    std::string saveFile = "savegame.CrGS";
+#endif
     std::cout << "Are you sure?\n";
     std::cout << "1. Yes\n";
     std::cout << "2. No\n";
@@ -169,7 +190,7 @@ void Menu_Loadgame() {
     switch (choice) {
     case 1:
         if (Crplayer.loadFromFile(saveFile)) {
-            system("cls");
+            clear();
             std::cout << "Game loaded!\n";
         }
         else {
@@ -177,7 +198,7 @@ void Menu_Loadgame() {
         }
         break;
     default:
-        system("cls");
+        clear();
         break;
     }
 }

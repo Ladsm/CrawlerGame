@@ -1,20 +1,27 @@
-#pragma once
+#if defined(_WIN32)
 #define NOMINMAX
 #define _NO_CVTE_BYTE_
 #include <windows.h>
 #include <mmsystem.h>
+#include <shlobj.h>
+#endif
 #include "CrawlerPlayer.h"
 #include "Item.h"
-#include <shlobj.h>
 #include <stdlib.h>
 #include "LDGWLogo.h"
 #include "MenuExterns.h"
+#if defined(_WIN32)
 #include "resource1.h"
+#endif
+#if defined(_WIN32)
 #pragma comment(lib, "Winmm.lib")
+#endif
 
 extern int Story;
 extern bool start;
+#if defined(_WIN32)
 extern HANDLE h;
+#endif
 extern bool MainMenu;
 extern bool Gamerunnin;
 extern bool NoStartUp;
@@ -25,13 +32,24 @@ void Menu_Switch_Fail();
 void BeepSound();
 
 void AltEnterfullScreen(){
+#if defined(_WIN32)
     keybd_event(VK_MENU, 0, 0, 0);//Alt Down
     keybd_event(VK_RETURN, 0, 0, 0);//Enter Down
     keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);//Enter Up
     keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, 0);//Alt up
+#endif
+}
+
+void clear() {
+#if defined(_WIN32)
+    system("cls");
+#elif defined(__linux__)
+    system("clear");
+#endif
 }
 
 void textColor(int color) {
+#if defined(_WIN32)
     switch (color) {
     case 1:
         SetConsoleTextAttribute(h, 4);
@@ -43,13 +61,18 @@ void textColor(int color) {
         std::cout << "This programer is dumb\n";
         break;
     }
+#endif
 }
 
 void MainMenu_splash() {
     if (!NoStartUp) {
+#if defined(_WIN32)
         PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
         LogoSplash();
-        system("cls"); Sleep(1000);
+        clear(); Sleep(1000);
+#elif defined(__linux__)
+        clear();
+#endif
         std::cout << "                                                                Crawler                                                          \n";
         std::cout << "                                                                Game!                                                            \n";
         std::cout << "                                                                |                                                                \n";
@@ -65,37 +88,53 @@ void MainMenu_splash() {
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
+#if defined(_WIN32)
         PlaySound(MAKEINTRESOURCE(IDR_WAVE5), GetModuleHandle(NULL), SND_RESOURCE | SND_SYNC);
         PlaySound(MAKEINTRESOURCE(IDR_WAVE4), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+#endif
     }
+#if defined(_WIN32)
     SetConsoleTextAttribute(h, 14);
+#endif
     std::cout << "1. New game\n";
     std::cout << "2. Load game\n";
     std::cout << "3. Quit\n";
+#if defined(_WIN32)
     SetConsoleTextAttribute(h, 7);
+#endif
 }
 
 static CrawlerPlayer MainMenu_NewGame() {
-    system("cls");
+    clear();
     CrawlerPlayer CrplayerLocal;
     if (!FullstaTs) {
         CrplayerLocal.points = 5;
         int choice;
         std::cout << "What is your character's name?\n";
         std::getline(std::cin >> std::ws, CrplayerLocal.Crawler_Name);
-        system("cls");
+        clear();
         BeepSound();
         while (CrplayerLocal.points > 0) {
             std::cout << CrplayerLocal.Crawler_Name << ", choose a stat to increase:\nWrite 0 to quit.\n";
+#if defined(_WIN32)
             SetConsoleTextAttribute(h, 12);
+#endif
             std::cout << "1. Damage (" << CrplayerLocal.Damage << ")\n";
+#if defined(_WIN32)
             SetConsoleTextAttribute(h, 9);
+#endif
             std::cout << "2. Defence (" << CrplayerLocal.Defence << ")\n";
+#if defined(_WIN32)
             SetConsoleTextAttribute(h, 11);
+#endif
             std::cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
+#if defined(_WIN32)
             SetConsoleTextAttribute(h, 14);
+#endif
             std::cout << "4. Mobility (" << CrplayerLocal.Mobility << ")\n";
+#if defined(_WIN32)
             SetConsoleTextAttribute(h, 7);
+#endif
             std::cout << CrplayerLocal.points << " points left.\n";
             std::cout << "Enter the number of the stat to increase : ";
             std::cin >> choice;
@@ -120,30 +159,31 @@ static CrawlerPlayer MainMenu_NewGame() {
                 CrplayerLocal.Mobility++;
                 break;
             default:
-                system("cls");
+                clear();
                 Menu_Switch_Fail();
                 continue;
             }
-            system("cls");
+            clear();
             CrplayerLocal.points--;
         }
         std::cin.ignore();
         Story = 1;
-        system("cls");
+        clear();
         return CrplayerLocal;
     }
     else {
-        system("cls");
+        clear();
         return CrplayerLocal;
     }
 }
 
+#if defined(_WIN32)
 std::string GetDocumentsPath() {
     char path[MAX_PATH];
     SHGetFolderPathA(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
     return std::string(path);
 }
-
+#endif
 void FullStats();
 void checkIfUserIsCheater();
 
@@ -151,8 +191,11 @@ bool MainMenu_Menu() {
 Loadfail:
     int Choice;
     std::cin >> Choice;
+#if defined(_WIN32)
     std::string saveFile = GetDocumentsPath() + "\\savegame.CrGS";
-
+#elif defined(__linux__)
+    std::string saveFile = "savegame.CrGS";
+#endif
     switch (Choice)
     {
     case 1:
@@ -164,7 +207,7 @@ Loadfail:
         MainMenu = false;
         start = true;
         Crplayer.saveToFile(saveFile);
-        system("cls");
+        clear();
         break;
     case 2:
         BeepSound();
@@ -172,18 +215,18 @@ Loadfail:
             std::cout << "Game loaded!\n";
             MainMenu = false;
             start = true;
-            system("cls");
+            clear();
             break;
         }
         else {
-            system("cls");
+            clear();
             std::cout << "Failed to load game.\n";
             goto Loadfail;
         }
         break;
     case 3:
-        system("cls");
-        exit(1);
+        clear();
+        std::_Exit(0);
         return 0;
     default:
         Menu_Switch_Fail();
@@ -198,7 +241,9 @@ void Menu_Switch_Fail() {
 }
 
 void BeepSound() {
+#if defined(_WIN32)
     PlaySound(MAKEINTRESOURCE(IDR_WAVE2), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+#endif
 }
 
 void FullStats() {
