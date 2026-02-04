@@ -1,4 +1,3 @@
-#include <shlobj.h>
 #include <fstream>
 #include "MainMenu.h"
 #include "CrawlerPlayer.h"
@@ -8,7 +7,9 @@
 #include "MenuExterns.h"
 #include "GameExterns.h"
 
+#if defined(_WIN32)
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+#endif
 Inventory LocalInventory;
 bool NoStartUp = false;
 bool FullstaTs = false;
@@ -16,7 +17,11 @@ bool devMode = false;
 
 int main(int argc, char* argv[])
 {
+#if defined(_WIN32)
         system("cls");
+#elif defined(__linux__)
+        system("clear");
+#endif
         for (int i = 1; i < argc; ++i)
         {
                 if (strcmp(argv[1], "-NoStartUp") == 0) 
@@ -74,6 +79,10 @@ int main(int argc, char* argv[])
                         PlayerDead();
                 }
         }
+#if defined(_WIN32)
         system("cls");
+#elif defined(__linux__)
+        system("clear");
+#endif
         return 0;
 }

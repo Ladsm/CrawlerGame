@@ -1,4 +1,5 @@
 ﻿#pragma once
+#if defined(_WIN32)
 #include <iostream>
 #include <ctime>
 #include <string>
@@ -12,8 +13,9 @@ int randomnum() {
 	int random = (rand() % 69) + 10;
 	return random;
 }
-
+#endif
 void LogoSplash() {
+	#if defined(_WIN32)
 	int prevMode = _setmode(_fileno(stdout), _O_U16TEXT);
 	const wchar_t* lines[] = {
 		L"██╗      █████╗ ██████╗ ███████╗███╗   ███╗███████╗                            \n",
@@ -37,6 +39,7 @@ void LogoSplash() {
 	}
 	Sleep(1500);
 	if (prevMode != -1) {
-		_setmode(_fileno(stdout), prevMode);
+		(void)_setmode(_fileno(stdout), prevMode);
 	}
+	#endif
 }

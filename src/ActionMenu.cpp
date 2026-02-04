@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ActionMenu.h"
 #include "MenuGame.h"
+#include "MainMenu.h"
 
 extern bool fight;
 
@@ -75,23 +76,23 @@ void ActionMenu::FightActionMenu() {
     std::cin.ignore();
     switch (choice) {
     case 1:
-        system("cls");
+        clear();
         Crplayer.attackEntity();
         break;
     case 2:
-        system("cls");
+        clear();
         Crplayer.defendfromEntity();
         break;
     case 3:
-        system("cls");
+        clear();
         Crplayer.EntityInfo();
         break;
     case 5:
-        system("cls");
+        clear();
         Gamemenu_Large_Menu();
         break;
     default:
-        system("cls");
+        clear();
         Gamemenu_Action_Menu();
         Menu_Switch_Fail();
         break;
@@ -117,39 +118,39 @@ void ActionMenu::ActionMenuMenu(ActionSet SetActionItems) {
         std::cin.ignore();
         switch (choice) {
         case 1:
-            system("cls");
+            clear();
             if (!SetActionItems.SetContents[0].type == 0) {
                 SetActionItems.SetContents[0].ActionDo(SetActionItems.SetContents[0]);
             }
             Gamemenu_Action_Menu();
             break;
         case 2:
-            system("cls");
+            clear();
             if (!SetActionItems.SetContents[1].type == 0) {
                 SetActionItems.SetContents[1].ActionDo(SetActionItems.SetContents[1]);
             }
             Gamemenu_Action_Menu();
             break;
         case 3:
-            system("cls");
+            clear();
             if (!SetActionItems.SetContents[2].type == 0) {
                 SetActionItems.SetContents[2].ActionDo(SetActionItems.SetContents[2]);
             }
             Gamemenu_Action_Menu();
             break;
         case 4:
-            system("cls");
+            clear();
             if (!SetActionItems.SetContents[3].type == 0) {
                 SetActionItems.SetContents[3].ActionDo(SetActionItems.SetContents[3]);
             }
             Gamemenu_Action_Menu();
             break;
         case 5:
-            system("cls");
+            clear();
             Gamemenu_Large_Menu();
             break;
         default:
-            system("cls");
+            clear();
             Gamemenu_Action_Menu();
             Menu_Switch_Fail();
             break;

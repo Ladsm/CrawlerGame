@@ -1,7 +1,5 @@
 #include "Entity.h"
-#include <iostream>
 #include "MenuExterns.h"
-#include "CrawlerPlayer.h"
 
 void Entity::AttackPlayer() {
 	int x = ammountOfDamage();
