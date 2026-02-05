@@ -32,6 +32,7 @@ endif()
 add_executable(CrawlerGame ${PROJECT_SOURCES})
 if(WIN32)
     target_link_libraries(CrawlerGame PRIVATE 
+        winmm
         User32.lib
         Gdi32.lib
         Shell32.lib
