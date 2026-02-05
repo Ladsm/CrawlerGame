@@ -37,6 +37,8 @@ if(WIN32)
         Gdi32.lib
         Shell32.lib
         Advapi32.lib
+        -Wl,-Bstatic,--whole-archive -lpthread -Wl,-Bdynamic,--no-whole-archive
     )
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libgcc -static-libstdc++")
 endif()
 target_include_directories(CrawlerGame PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
