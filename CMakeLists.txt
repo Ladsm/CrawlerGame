@@ -30,15 +30,17 @@ if(WIN32)
     list(APPEND PROJECT_SOURCES "src/CrawlerGame.rc")
 endif()
 add_executable(CrawlerGame ${PROJECT_SOURCES})
-if(WIN32)
+if(NOT WIN32)
+    target_link_libraries(CrawlerGame PRIVATE 
+        -Wl,-Bstatic,--whole-archive -lpthread -Wl,-Bdynamic,--no-whole-archive
+    )
+else()
     target_link_libraries(CrawlerGame PRIVATE 
         winmm
         User32.lib
         Gdi32.lib
         Shell32.lib
         Advapi32.lib
-        -Wl,-Bstatic,--whole-archive -lpthread -Wl,-Bdynamic,--no-whole-archive
     )
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libgcc -static-libstdc++")
 endif()
 target_include_directories(CrawlerGame PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

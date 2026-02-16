@@ -2,7 +2,7 @@
 #include "MenuExterns.h"
 
 void Entity::AttackPlayer() {
-	int x = ammountOfDamage();
+	int x = AmountOfDamage();
 	for (int i = 0; i < x; i++) {
 		Crplayer.Health--;
 	}

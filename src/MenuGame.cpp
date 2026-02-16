@@ -102,14 +102,29 @@ void Gamemenu_Action_Menu() {
 }
 
 void Gamemenu_Inventory_Write() {
-    if (devMode == true) {
-        std::cout << "Story = " << Story << '\n';
+    if (!Crplayer.canUpgrade) {
+        if (devMode == true) {
+            std::cout << "Story = " << Story << '\n';
+            std::cout << "Points = " << Crplayer.points << '\n';
+        }
+        Crplayer.displayStats();
+        LocalInventory.displayInventory();
+        std::cout << "1. Use an item from inventory\n";
+        std::cout << "2. Remove an item from inventory\n";
+        std::cout << "3. Back\n";
     }
-    Crplayer.displayStats();
-    LocalInventory.displayInventory();
-    std::cout << "1. Use an item from inventory\n";
-    std::cout << "2. Remove an item from inventory\n";
-    std::cout << "3. Back\n";
+    else {
+        if (devMode == true) {
+            std::cout << "Story = " << Story << '\n';
+            std::cout << "Points = " << Crplayer.points << '\n';
+        }
+        Crplayer.displayStats();
+        LocalInventory.displayInventory();
+        std::cout << "1. Use an item from inventory\n";
+        std::cout << "2. Remove an item from inventory\n";
+        std::cout << "3. Upgrade stat\n";
+        std::cout << "4. Back\n";
+    }
 }
 
 void Gamemenu_Inventory_Menu() {
@@ -117,6 +132,32 @@ void Gamemenu_Inventory_Menu() {
     int choice;
     int placement =+1;
     std::cin >> choice;
+    if (!Crplayer.canUpgrade) {
+        switch (choice) {
+        case 1:
+            std::cout << "Which item do you want to use?\n";
+            std::cin >> placement;
+            LocalInventory.Inv_UseItem(placement);
+            clear();
+            Gamemenu_Inventory_Menu();
+            break;
+        case 2:
+            std::cout << "Which item do you want to remove?\n";
+            std::cin >> placement;
+            LocalInventory.Inv_RemoveItemFromInv_User(placement);
+            clear();
+            Gamemenu_Inventory_Menu();
+            break;
+        case 3:
+            clear();
+            Gamemenu_Large_Menu();
+            break;
+        default:
+            clear();
+            Menu_Switch_Fail();
+            Gamemenu_Inventory_Menu();
+        }
+    }
     switch (choice) {
     case 1:
         std::cout << "Which item do you want to use?\n";
@@ -133,6 +174,61 @@ void Gamemenu_Inventory_Menu() {
         Gamemenu_Inventory_Menu();
         break;
     case 3:
+        if (Crplayer.points <= 0) { break; }
+        while (Crplayer.points >= 0) {
+            std::cout << Crplayer.Crawler_Name << ", choose a stat to increase:\n";
+#if defined(_WIN32)
+            SetConsoleTextAttribute(h, 12);
+#endif
+            std::cout << "1. Damage (" << Crplayer.Damage << ")\n";
+#if defined(_WIN32)
+            SetConsoleTextAttribute(h, 9);
+#endif
+            std::cout << "2. Defence (" << Crplayer.Defence << ")\n";
+#if defined(_WIN32)
+            SetConsoleTextAttribute(h, 11);
+#endif
+            std::cout << "3. Intelligence (" << Crplayer.intelligence  << ")\n";
+#if defined(_WIN32)
+            SetConsoleTextAttribute(h, 14);
+#endif
+            std::cout << "4. Mobility (" << Crplayer.Mobility << ")\n";
+#if defined(_WIN32)
+            SetConsoleTextAttribute(h, 7);
+#endif
+            std::cout << Crplayer.points << " points left.\n";
+            std::cout << "Enter the number of the stat to increase : ";
+            std::cin >> choice;
+            switch (choice) {
+            case 1:
+                BeepSound();
+                Crplayer.Damage++;
+                Crplayer.points--;
+                break;
+            case 2:
+                BeepSound();
+                Crplayer.Defence++;
+                Crplayer.points--;
+                break;
+            case 3:
+                BeepSound();
+                Crplayer.intelligence ++;
+                Crplayer.points--;
+                break;
+            case 4:
+                BeepSound();
+                Crplayer.Mobility++;
+                Crplayer.points--;
+                break;
+            default:
+                clear();
+                Menu_Switch_Fail();
+                continue;
+            }
+            if (Crplayer.points == 0) { clear(); break; }
+        }
+        break;
+    case 4:
         clear();
         Gamemenu_Large_Menu();
         break;
@@ -140,6 +236,7 @@ void Gamemenu_Inventory_Menu() {
         clear();
         Menu_Switch_Fail();
         Gamemenu_Inventory_Menu();
+        break;
     }
 }
 
