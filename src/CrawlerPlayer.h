@@ -23,6 +23,9 @@ public:
     int Mobility = 3;
     int points = 5;
     float money = 0;
+    int exp = 0;
+    int level = 1;
+    bool canUpgrade = false;
     std::string Crawler_Name;
     WeaponItem currentWeapon = Stick;
     DefenceItem currentArmor = ClothShirt;
@@ -35,4 +38,5 @@ public:
     void displayStats();
     void saveToFile(const std::string& filename) const;
     bool loadFromFile(const std::string& filename);
+    void levelUp();
 };

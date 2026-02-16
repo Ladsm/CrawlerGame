@@ -4,6 +4,7 @@
 #include "MenuExterns.h"
 #include "GameExterns.h"
 #include "CrawlerPlayer.h"
+
 class Entity {
 public:
 	std::string name = "Unamed";
@@ -11,19 +12,23 @@ public:
 	int health = 1;
 	int attack = 1;
 	int defence = 1;
+	int exp = 1;
 
 	Entity() = default;
-	Entity(std::string Name, int Health, int Attack, int Defence, std::string Encounter) {
+	Entity(std::string Name, int Health, int Attack, int Defence, int EXP, std::string Encounter) {
 		name = Name;
 		health = Health;
 		attack = Attack;
 		defence = Defence;
+		exp = EXP;
 		EncounterString = Encounter;
 	}
 	void checkHealthOfEntity() {
-		if (health < 0) {
+		if (health <= 0 && fight) {
 			fight = false;
 			std::cout << "You defeated " << name << '\n';
+			Crplayer.exp += exp;
+			exp = 0;
 			Story++;
 			return;
 		}

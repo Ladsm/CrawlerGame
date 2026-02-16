@@ -206,6 +206,7 @@ Loadfail:
         }
         MainMenu = false;
         start = true;
+        Crplayer.points = 0;
         Crplayer.saveToFile(saveFile);
         clear();
         break;

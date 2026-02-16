@@ -32,10 +32,15 @@ int main(int argc, char* argv[])
                 {
                         FullstaTs = true;
                 }
-                if (strcmp(argv[1], "-dev") == 0) //Should I add this to readme.txt?
+                if (strcmp(argv[1], "-dev") == 0)
                 {
                         NoStartUp = true;
                         devMode = true;
+                }
+                if (strcmp(argv[1], "-h") == 0)
+                {
+                    std::cout << "-NoStartUp : goes to main menu without start-up\n-FullStats : gives you 10 points on evrything\n-dev : dev mode\n-h : you're here X\n";
+                    std::_Exit(42069);
                 }
         }
         if(devMode == false)
@@ -58,7 +63,7 @@ int main(int argc, char* argv[])
                 }
         }
         int defendThree = 0;
-        while (Gamerunnin == true)
+        while (Gamerunnin == true) // main main loop
         {
                 if (Defend == true)
                 {
@@ -68,10 +73,11 @@ int main(int argc, char* argv[])
                         Crplayer.revertdefendfromEntity();
                     }
                 }
-                CurrentEntity.checkHealthOfEntity();
+                Crplayer.levelUp();
                 Gamemenu_Large_Menu();
                 if (fight == true)
                 {
+                        CurrentEntity.checkHealthOfEntity();
                         CurrentEntity.AttackPlayer();
                 }
                 if (Crplayer.Health <= 0)

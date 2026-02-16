@@ -52,6 +52,7 @@ void CrawlerPlayer::displayStats() {
     std::cout << "Current Weapon : " << currentWeapon.itemName << '\n';
     std::cout << "Current Armor : " << currentArmor.itemName << '\n';
     std::cout << "Cash : " << money << '\n';
+    std::cout << "Level and EXP : " << level << ", " << exp << '\n';
 }
 
 void CrawlerPlayer::saveToFile(const std::string& filename) const {
@@ -123,4 +124,15 @@ bool CrawlerPlayer::loadFromFile(const std::string& filename) {
         }
     }
     return true;
+}
+void CrawlerPlayer::levelUp() {
+    static const int thresholds[] = { 100, 300, 750, 1500, 2500 };
+    bool leveled = false;
+    while ((level - 1) < static_cast<int>(std::size(thresholds)) &&
+        exp >= thresholds[level - 1]) {
+        level++;
+        points++;
+        leveled = true;
+    }
+    canUpgrade = leveled;
 }

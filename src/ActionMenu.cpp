@@ -17,7 +17,7 @@ Entity Slime;
 void SetSets() {
     tester = ActionItem("Test", 2, "This worked");
     FirstSet.SetContents[0] = tester;
-    Slime = Entity("Slime", 100, 10, 10, "A slime smuthers through");
+    Slime = Entity("Slime", 100, 10, 10, 200, "A slime smuthers through");
     StartFights = ActionItem("Start a fight?", Slime);
     FirstSet.SetContents[1] = StartFights;
 }
