@@ -188,7 +188,7 @@ void Gamemenu_Inventory_Menu() {
 #if defined(_WIN32)
             SetConsoleTextAttribute(h, 11);
 #endif
-            std::cout << "3. Intelligence (" << Crplayer.intelagince << ")\n";
+            std::cout << "3. Intelligence (" << Crplayer.intelligence  << ")\n";
 #if defined(_WIN32)
             SetConsoleTextAttribute(h, 14);
 #endif
@@ -212,7 +212,7 @@ void Gamemenu_Inventory_Menu() {
                 break;
             case 3:
                 BeepSound();
-                Crplayer.intelagince++;
+                Crplayer.intelligence ++;
                 Crplayer.points--;
                 break;
             case 4:

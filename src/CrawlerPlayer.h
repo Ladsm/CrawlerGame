@@ -19,7 +19,7 @@ public:
     int Health = 100;
     int Damage = 3;
     int Defence = 3;
-    int intelagince = 3;
+    int intelligence  = 3;
     int Mobility = 3;
     int points = 5;
     float money = 0;

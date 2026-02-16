@@ -17,7 +17,7 @@ Entity Slime;
 void SetSets() {
     tester = ActionItem("Test", 2, "This worked");
     FirstSet.SetContents[0] = tester;
-    Slime = Entity("Slime", 100, 10, 10, 200, "A slime smuthers through");
+    Slime = Entity("Slime", 100, 10, 10, 200, "A slime slithers through");
     StartFights = ActionItem("Start a fight?", Slime);
     FirstSet.SetContents[1] = StartFights;
 }
@@ -25,7 +25,7 @@ void SetSets() {
 bool ActionItem::ActionDo(ActionItem WhatActionItem) {
     int Type = WhatActionItem.type;
     switch (Type) {
-    case undefinded:
+    case undefined:
         std::cout << "Man how do you screw this up?\n";
         return false;
         break;

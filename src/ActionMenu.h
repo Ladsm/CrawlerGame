@@ -10,7 +10,7 @@ void SetSets();
 class ActionItem {
 private:
     enum {
-        undefinded,
+        undefined,
         startfight,
         continuestory,
         SaySomeThing
@@ -33,7 +33,7 @@ public:
     bool ActionDo(ActionItem WhatActionItem);
     ActionItem() {
         ActionName = "#Fail";
-        type = undefinded;
+        type = undefined;
     }
     ActionItem(std::string Name, int Type) {
         ActionName = Name;

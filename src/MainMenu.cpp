@@ -58,7 +58,7 @@ void textColor(int color) {
         SetConsoleTextAttribute(h, 7);
         break;
     default:
-        std::cout << "This programer is dumb\n";
+        std::cout << "This programmer is dumb\n";
         break;
     }
 #endif
@@ -127,7 +127,7 @@ static CrawlerPlayer MainMenu_NewGame() {
 #if defined(_WIN32)
             SetConsoleTextAttribute(h, 11);
 #endif
-            std::cout << "3. Intelligence (" << CrplayerLocal.intelagince << ")\n";
+            std::cout << "3. Intelligence (" << CrplayerLocal.intelligence  << ")\n";
 #if defined(_WIN32)
             SetConsoleTextAttribute(h, 14);
 #endif
@@ -152,7 +152,7 @@ static CrawlerPlayer MainMenu_NewGame() {
                 break;
             case 3:
                 BeepSound();
-                CrplayerLocal.intelagince++;
+                CrplayerLocal.intelligence ++;
                 break;
             case 4:
                 BeepSound();
@@ -251,7 +251,7 @@ void FullStats() {
     Crplayer.Crawler_Name = "CHEATER!";
     Crplayer.Damage = 10;
     Crplayer.Defence = 10;
-    Crplayer.intelagince = 10;
+    Crplayer.intelligence  = 10;
     Crplayer.Mobility = 10;
 }
 
