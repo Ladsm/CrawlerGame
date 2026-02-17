@@ -8,11 +8,11 @@
 extern Inventory LocalInventory;
 
 void CrawlerPlayer::attackEntity() {
-    int damageToGive = Damage * currentWeapon.DamageOfWeapon;
-    for (int i = 0; i < damageToGive; i++) {
+    int DaMagetogive = Damage * currentWeapon.DamageOfWeapon;
+    for (int i = 0; i < DaMagetogive; i++) {
         CurrentEntity.health--;
     }
-    std::cout << "You dealt : " << damageToGive << " damage to " << CurrentEntity.name << '\n';
+    std::cout << "You delt : " << DaMagetogive << " damage to " << CurrentEntity.name << '\n';
     return;
 }
 
@@ -32,7 +32,7 @@ void CrawlerPlayer::revertdefendfromEntity() {
 void CrawlerPlayer::EntityInfo() {
     std::cout << "Name of enemy: " << CurrentEntity.name << '\n';
     std::cout << "Health: " << CurrentEntity.health << '\n';
-    if (intelligence  > 5) {
+    if (intelligence > 5) {
         std::cout << "Amount of base attack: " << CurrentEntity.attack << '\n';
         std::cout << "Amount of defence: " << CurrentEntity.defence << '\n';
     }
@@ -47,7 +47,7 @@ void CrawlerPlayer::displayStats() {
     std::cout << "Health : " << Health << '\n';
     std::cout << "Damage : " << Damage << '\n';
     std::cout << "Defence : " << Defence << '\n';
-    std::cout << "Intelligence : " << intelligence  << '\n';
+    std::cout << "Intelligence : " << intelligence << '\n';
     std::cout << "Mobility : " << Mobility << '\n';
     std::cout << "Current Weapon : " << currentWeapon.itemName << '\n';
     std::cout << "Current Armor : " << currentArmor.itemName << '\n';
@@ -61,11 +61,13 @@ void CrawlerPlayer::saveToFile(const std::string& filename) const {
     out << Health << std::endl;
     out << Damage << std::endl;
     out << Defence << std::endl;
-    out << intelligence  << std::endl;
+    out << intelligence << std::endl;
     out << Mobility << std::endl;
     out << points << std::endl;
     out << Story << std::endl;
     out << money << std::endl;
+    out << exp << std::endl;
+    out << level << std::endl;
     for (int i = 0; i < 20; i++) {
         if (LocalInventory[i]) {
             out << LocalInventory[i]->itemId << std::endl;
@@ -99,11 +101,13 @@ bool CrawlerPlayer::loadFromFile(const std::string& filename) {
     in >> Health;
     in >> Damage;
     in >> Defence;
-    in >> intelligence ;
+    in >> intelligence;
     in >> Mobility;
     in >> points;
     in >> Story;
     in >> money;
+    in >> exp;
+    in >> level;
     for (int i = 0; i < 20; i++) {
         if (LocalInventory[i]) {
             in >> LocalInventory[i]->itemId;
