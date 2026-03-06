@@ -1,5 +1,7 @@
 # Forgot about this lol, might stop working on it.
 
+## I got better and the code here looks grbo and I aint touching the stuff.
+
 # Welcome to the CrawlerGame Repository
 
 This is the repository for the video game CrawlerGame, CrawlerGame was made to learn C++
